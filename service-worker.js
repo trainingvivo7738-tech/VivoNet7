@@ -1,7 +1,8 @@
-const CACHE_NAME = 'vivonet-v75';
+const CACHE_NAME = 'vivonet-v99';
 const APP_SHELL = [
   './',
   './index.html',
+  './vigo.html',
   './manifest.webmanifest',
   './favicon-32.png',
   './apple-touch-icon.png',

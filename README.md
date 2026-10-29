@@ -25,3 +25,7 @@ El paquete incluye `service-worker.js` para habilitar instalación PWA y soporte
 
 
 Actualización: VivoNet v44 incluye 20 curiosidades con recomendaciones prácticas para la venta.
+
+
+## Vigo integrado (v76)
+Se agregó la tarjeta **Vigo** a las herramientas principales. Abre `vigo.html` y el botón «Regresar a VivoNet» vuelve a la pantalla principal. La página de Vigo se incluye en la caché del service worker.
