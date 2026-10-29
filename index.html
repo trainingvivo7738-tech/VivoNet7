@@ -342,6 +342,246 @@ footer[aria-label="Accesos directos"] { margin-top: 28px !important; }
   box-shadow: none !important;
 }
 </style>
+
+<!-- Estilos de ajustes de VivoNet normalizados dentro de head para que se apliquen consistentemente. -->
+<style id="vivonet-v68-all-text-centered">
+/* V68: experimento visual; centra todos los textos sin cambiar los espacios de 11 px ni la estructura. */
+html body, html body * { text-align: center !important; }
+html body input, html body textarea, html body select, html body button { text-align: center !important; }
+/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
+#navCalc, #navCalc.navcard, #navCalc.navcard.active {
+  border: 1.25px solid #7F9482 !important;
+  box-shadow: none !important;
+}
+</style>
+<style id="vivonet-v69-centered-icons-announcement">
+/* V69: centrar iconos y encabezado de anuncios; quitar iconos de los dos detalles promocionales. */
+.navcard { text-align: center !important; }
+.navicon { margin-left: auto !important; margin-right: auto !important; }
+.promo-head { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; gap: 5px !important; }
+.promo-head-icon { display: none !important; }
+.promo-details { text-align: center !important; }
+.promo-detail { display: block !important; text-align: center !important; }
+.promo-detail svg { display: none !important; }
+.promo-detail span { display: block !important; text-align: center !important; width: 100%; }
+/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
+#navCalc, #navCalc.navcard, #navCalc.navcard.active {
+  border: 1.25px solid #7F9482 !important;
+  box-shadow: none !important;
+}
+</style>
+<style id="vivonet-v97-section-colors-and-centering">
+/* VivoNet v96: remove metadata chips and center section headers. Calculator remains untouched for practical use. */
+.panelhead .pill { display: none !important; }
+#kpiPanel .panelhead,
+#demoPanel .panelhead,
+#vsafePanel .panelhead {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+#kpiPanel .panelhead > div,
+#demoPanel .panelhead > div,
+#vsafePanel .panelhead > div { width: 100% !important; min-width: 0 !important; }
+#kpiPanel .panelhead h2,
+#demoPanel .panelhead h2,
+#vsafePanel .panelhead h2 { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+#kpiPanel .panelhead p,
+#demoPanel .panelhead p,
+#vsafePanel .panelhead p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; max-width: 38rem; }
+
+/* Each open section uses its own approved accent and a quiet pastel surface. */
+#calcPanel { --section-accent: #7F9482; --section-soft: #EAF3EB; --section-line: #D8E5D9; }
+#kpiPanel { --section-accent: #B98935; --section-soft: #F7EFDF; --section-line: #E9DCC0; }
+#demoPanel { --section-accent: #8A72B3; --section-soft: #F0ECF6; --section-line: #DED4EB; }
+#vsafePanel { --section-accent: #C96D6D; --section-soft: #F7ECEC; --section-line: #EBCFCF; }
+#kpiPanel .panelhead h2,
+#demoPanel .panelhead h2,
+#vsafePanel .panelhead h2 { color: var(--section-accent) !important; }
+#kpiPanel .card, #kpiPanel .model-card, #kpiPanel .kpi,
+#demoPanel > .card, #demoPanel .vsafe-card,
+#vsafePanel .vsafe-card {
+  border-color: var(--section-line) !important;
+}
+#kpiPanel .kpi-icon {
+  background: var(--section-soft) !important;
+  color: var(--section-accent) !important;
+}
+#kpiPanel .model-hero {
+  background: linear-gradient(135deg, #F7EFDF, #EBD9B6) !important;
+  color: #654A1C !important;
+  text-align: center !important;
+}
+#kpiPanel .model-hero p { color: #725C36 !important; margin-left: auto !important; margin-right: auto !important; }
+#demoPanel .model-hero {
+  background: linear-gradient(135deg, #6F5A95, #8A72B3 68%, #C2B4D8) !important;
+  color: #fff !important;
+  text-align: center !important;
+}
+#demoPanel .model-hero p { color: #F6F1FC !important; margin-left: auto !important; margin-right: auto !important; }
+#kpiPanel h3, #kpiPanel .back, #demoPanel h3, #demoPanel .eyebrow { color: var(--section-accent) !important; }
+#kpiPanel .back { display: block !important; margin: 0 auto 10px !important; }
+
+/* All non-calculator content is centered, including dynamic model detail cards. */
+#kpiPanel, #demoPanel, #vsafePanel { text-align: center !important; }
+#kpiPanel .model-card {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  color: var(--ink) !important;
+}
+#kpiPanel .model-card strong, #kpiPanel .model-card small,
+#kpiPanel .kpi h3, #kpiPanel .kpi p, #kpiPanel .model-detail,
+#demoPanel .card, #demoPanel .card p, #demoPanel .field-label,
+#demoPanel .vsafe-card, #demoPanel .vsafe-card p,
+#vsafePanel .vsafe-card, #vsafePanel .family-models,
+#vsafePanel .vsafe-note { text-align: center !important; }
+#kpiPanel .model-card .arrow { margin: 0 !important; }
+#kpiPanel .kpi {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+#kpiPanel .kpi-icon { margin: 0 auto 8px !important; }
+#kpiPanel .model-detail, #kpiPanel #modelDetail { text-align: center !important; }
+#kpiPanel .model-detail > *, #kpiPanel #modelDetail > * { margin-left: auto; margin-right: auto; }
+#demoPanel .number-input { text-align: center !important; }
+#demoPanel .model-hero .eyebrow,
+#demoPanel .model-hero h2,
+#demoPanel .model-hero p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+#demoPanel .vsafe-card h3, #vsafePanel .vsafe-card h3 { color: var(--section-accent) !important; text-align: center !important; }
+#vsafePanel .family-models { margin-left: auto !important; margin-right: auto !important; }
+#vsafePanel .vsafe-note { color: #855050 !important; background: var(--section-soft) !important; border-color: var(--section-line) !important; }
+#vsafePanel .vsafe-checklist { text-align: center !important; list-style-position: inside !important; padding-left: 0 !important; }
+#vsafePanel .vsafe-actions { justify-items: center !important; }
+#vsafePanel .vsafe-actions .btn { width: 100%; max-width: 420px; box-sizing: border-box; }
+
+/* Strict text alignment for every non-calculator section, including dynamically rendered content. */
+#kpiPanel, #kpiPanel *, #demoPanel, #demoPanel *, #vsafePanel, #vsafePanel * { text-align: center !important; }
+#kpiPanel .model-card strong, #kpiPanel .kpi h3 { color: var(--section-accent) !important; }
+#demoPanel .vsafe-card h3 { color: var(--section-accent) !important; }
+
+/* Benefits: icon first, centered, and recolorable to the coral section accent. */
+#vsafePanel .vsafe-benefit {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 9px !important;
+  text-align: center !important;
+  border-top-color: var(--section-line) !important;
+  padding: 15px 0 !important;
+}
+#vsafePanel .vsafe-benefit > div:last-child { width: 100% !important; text-align: center !important; }
+#vsafePanel .vsafe-benefit .ico {
+  width: 46px !important; height: 46px !important; flex: 0 0 46px !important;
+  border-radius: 15px !important; background: var(--section-soft) !important;
+  color: var(--section-accent) !important; display: grid !important; place-items: center !important;
+  margin: 0 auto !important; font-size: 22px !important;
+}
+#vsafePanel .vsafe-benefit .ico svg { display: block !important; width: 24px !important; height: 24px !important; stroke: currentColor !important; }
+#vsafePanel .vsafe-benefit strong { display: block !important; color: var(--section-accent) !important; text-align: center !important; }
+#vsafePanel .vsafe-benefit p { color: var(--muted) !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* v97: demo controls use readable violet rather than the inherited vivo blue. */
+#demoPanel .btn,
+#demoPanel #demoMoreLink,
+#demoPanel a,
+#demoPanel button { background: #8A72B3 !important; color: #fff !important; border: 1px solid #8A72B3 !important; }
+#demoPanel .btn-soft { background: #F0ECF6 !important; color: #5E477F !important; border-color: #DED4EB !important; }
+#demoPanel .note, #demoPanel .field-label, #demoPanel .vsafe-card p { color: #51445F !important; }
+
+/* Buttons and links follow the accent of their current section without changing functionality. */
+#kpiPanel .btn, #kpiPanel .back { color: var(--section-accent) !important; }
+#demoPanel .btn { background: var(--section-soft) !important; color: var(--section-accent) !important; border-color: var(--section-line) !important; }
+#vsafePanel .btn-primary { background: var(--section-accent) !important; border-color: var(--section-accent) !important; color: #fff !important; }
+#vsafePanel .btn-soft { background: var(--section-soft) !important; border-color: var(--section-line) !important; color: var(--section-accent) !important; }
+/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
+#navCalc, #navCalc.navcard, #navCalc.navcard.active {
+  border: 1.25px solid #7F9482 !important;
+  box-shadow: none !important;
+}
+</style>
+<style id="vivonet-v97-targeted-followups">
+/* v97: each catalog model keeps its own pastel icon color; cards are slightly more compact. */
+#kpiPanel .model-card { padding: 11px 12px !important; gap: 9px !important; border-radius: 15px !important; }
+#kpiPanel .model-card .phone-badge { flex-basis: 62px !important; width: 62px !important; height: 74px !important; border-radius: 13px !important; box-shadow: inset 0 0 0 1px #ffffff80 !important; font-size: 31px !important; }
+#kpiPanel .model-card .phone-badge { background: var(--model-icon-bg, #e7f1ff); }
+/* Calculator section consistently uses its approved sage accent; fields and numeric values remain practical/right-aligned. */
+#calcPanel .panelhead h2,
+#calcPanel .card > h3 { color: var(--section-accent) !important; }
+#calcPanel .pill { color: var(--section-accent) !important; background: var(--section-soft) !important; }
+#calcPanel .calc-groups details { border-color: var(--section-line) !important; }
+#calcPanel .calc-groups summary { background: var(--section-soft) !important; color: var(--section-accent) !important; }
+#calcPanel .stats .stat { background: var(--section-soft) !important; border: 1px solid var(--section-line) !important; }
+#calcPanel .stats .stat strong,
+#calcPanel .grand,
+#calcPanel .feedback { color: var(--section-accent) !important; }
+#calcPanel .btn-primary, #calcPanel .key.eq { background: var(--section-accent) !important; color: #fff !important; }
+#calcPanel .btn-soft, #calcPanel .key.op { background: var(--section-soft) !important; color: var(--section-accent) !important; }
+#calcPanel .number-input:focus, #calcPanel .qty:focus { outline-color: var(--section-accent) !important; border-color: var(--section-accent) !important; }
+#calcPanel .card { border-color: var(--section-line) !important; }
+#calcPanel .field-label { color: var(--section-accent) !important; }
+
+/* v98 refinements requested: consistent demo contrast, compact model cards and VSafe layout. */
+#kpiPanel .model-card { gap: 9px !important; padding: 12px 14px !important; }
+#kpiPanel .model-card .arrow { display: none !important; }
+#kpiPanel .model-card .phone-badge { width: 42px !important; height: 42px !important; min-width: 42px !important; border-radius: 13px !important; }
+#kpiPanel .model-card strong { color: #263449 !important; }
+#kpiPanel #modelDetail, #kpiPanel #modelDetail p, #kpiPanel #modelDetail li,
+#kpiPanel #modelDetail small, #kpiPanel #modelDetail .muted,
+#kpiPanel #modelDetail .detail-copy { color: #334155 !important; }
+#kpiPanel #modelDetail h2, #kpiPanel #modelDetail h3 { color: var(--section-accent) !important; }
+#demoPanel .model-hero .eyebrow { color: #FFFFFF !important; opacity: 1 !important; font-weight: 700 !important; }
+#demoPanel .model-hero h2 { color: #FFFFFF !important; }
+#demoPanel .model-hero p { color: #FFFFFF !important; }
+#demoPanel .model-hero { background: #8A72B3 !important; }
+#demoPanel #demoMoreLink { background: #8A72B3 !important; color: #FFFFFF !important; border-color: #8A72B3 !important; }
+#demoPanel .field-label, #demoPanel label { color: #5D4A7D !important; }
+#vsafePanel .family-models strong { display: block !important; margin-bottom: 5px !important; }
+#vsafePanel .family-models { line-height: 1.5 !important; }
+#vsafePanel .vsafe-actions a::before, #vsafePanel .vsafe-actions a svg { display: none !important; content: none !important; }
+
+/* v99: restore model summaries without arrows; keep this CSS inside the stylesheet. */
+#kpiPanel .model-card-summary { display:block !important; margin-top:4px !important; color:#64748b !important; font-size:11px !important; line-height:1.35 !important; font-weight:500 !important; white-space:normal !important; text-align:center !important; }
+#kpiPanel .model-card-copy { flex:1 1 auto; min-width:0; text-align:center !important; }
+
+/* v103-v104: contornos cromáticos visibles en tarjetas de inicio y contorno azul en accesos inferiores. */
+#navCalc.navcard, #navCalc.navcard.active { border: 1.25px solid #7F9482 !important; }
+#navKpi.navcard, #navKpi.navcard.active { border: 1.25px solid #B98935 !important; }
+#navDemo.navcard, #navDemo.navcard.active { border: 1.25px solid #8A72B3 !important; }
+#navVsafe.navcard, #navVsafe.navcard.active { border: 1.25px solid #C96D6D !important; }
+.home-curio.curio-card, .home-curio { border: 1.25px solid #E8A8CA !important; }
+.vigo-feature-card { border: 1.25px solid #008F8B !important; }
+.promo-announcement { border: 1.25px solid #C5A98C !important; }
+/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
+#navCalc, #navCalc.navcard, #navCalc.navcard.active {
+  border: 1.25px solid #7F9482 !important;
+  box-shadow: none !important;
+}
+</style>
+<style id="vivonet-v107-spacing-curiosity-click">
+/* v107: espacios ajustados según lo solicitado */
+:root { --section-gap: 12px !important; --layout-gap: 12px !important; }
+main, .main-content, .content, .sections, .section-grid, .cards-grid, .button-row, .bottom-buttons, .app-grid { gap: 12px !important; row-gap: 12px !important; column-gap: 12px !important; }
+header.topbar { padding-bottom: 12px !important; }
+.promo-announcement { margin-bottom: 12px !important; }
+.curio-card.home-curio { margin-bottom: 12px !important; }
+.navgrid { gap: 12px !important; }
+footer[aria-label="Accesos directos"] { margin-top: 26px !important; }
+@media (max-width: 559px) { header.topbar { padding-bottom: 12px !important; } }
+/* La tarjeta completa es el control; no se muestra la flecha rosa. */
+.home-curio { cursor: pointer; }
+.home-curio:focus-visible { outline: 2px solid #E6007E; outline-offset: 3px; }
+.curio-next-wrap, .curio-next-btn { display: none !important; }
+</style>
 </head>
 <body>
 <header class="topbar">
@@ -721,33 +961,9 @@ renderCalc();renderSummary();renderProductList();
 if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
 </script>
 
-<style id="vivonet-v68-all-text-centered">
-/* V68: experimento visual; centra todos los textos sin cambiar los espacios de 11 px ni la estructura. */
-html body, html body * { text-align: center !important; }
-html body input, html body textarea, html body select, html body button { text-align: center !important; }
-/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
-#navCalc, #navCalc.navcard, #navCalc.navcard.active {
-  border: 1.25px solid #7F9482 !important;
-  box-shadow: none !important;
-}
-</style>
 
-<style id="vivonet-v69-centered-icons-announcement">
-/* V69: centrar iconos y encabezado de anuncios; quitar iconos de los dos detalles promocionales. */
-.navcard { text-align: center !important; }
-.navicon { margin-left: auto !important; margin-right: auto !important; }
-.promo-head { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; gap: 5px !important; }
-.promo-head-icon { display: none !important; }
-.promo-details { text-align: center !important; }
-.promo-detail { display: block !important; text-align: center !important; }
-.promo-detail svg { display: none !important; }
-.promo-detail span { display: block !important; text-align: center !important; width: 100%; }
-/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
-#navCalc, #navCalc.navcard, #navCalc.navcard.active {
-  border: 1.25px solid #7F9482 !important;
-  box-shadow: none !important;
-}
-</style>
+
+
 
 
 <div id="vigoEmbeddedOverlay" aria-label="Vigo" role="dialog" aria-modal="true" hidden style="position:fixed;inset:0;z-index:10000;background:#008F8B;">
@@ -804,222 +1020,13 @@ html body input, html body textarea, html body select, html body button { text-a
 </script>
 
 
-<style id="vivonet-v97-section-colors-and-centering">
-/* VivoNet v96: remove metadata chips and center section headers. Calculator remains untouched for practical use. */
-.panelhead .pill { display: none !important; }
-#kpiPanel .panelhead,
-#demoPanel .panelhead,
-#vsafePanel .panelhead {
-  display: flex !important;
-  width: 100% !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-#kpiPanel .panelhead > div,
-#demoPanel .panelhead > div,
-#vsafePanel .panelhead > div { width: 100% !important; min-width: 0 !important; }
-#kpiPanel .panelhead h2,
-#demoPanel .panelhead h2,
-#vsafePanel .panelhead h2 { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
-#kpiPanel .panelhead p,
-#demoPanel .panelhead p,
-#vsafePanel .panelhead p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; max-width: 38rem; }
-
-/* Each open section uses its own approved accent and a quiet pastel surface. */
-#calcPanel { --section-accent: #7F9482; --section-soft: #EAF3EB; --section-line: #D8E5D9; }
-#kpiPanel { --section-accent: #B98935; --section-soft: #F7EFDF; --section-line: #E9DCC0; }
-#demoPanel { --section-accent: #8A72B3; --section-soft: #F0ECF6; --section-line: #DED4EB; }
-#vsafePanel { --section-accent: #C96D6D; --section-soft: #F7ECEC; --section-line: #EBCFCF; }
-#kpiPanel .panelhead h2,
-#demoPanel .panelhead h2,
-#vsafePanel .panelhead h2 { color: var(--section-accent) !important; }
-#kpiPanel .card, #kpiPanel .model-card, #kpiPanel .kpi,
-#demoPanel > .card, #demoPanel .vsafe-card,
-#vsafePanel .vsafe-card {
-  border-color: var(--section-line) !important;
-}
-#kpiPanel .kpi-icon {
-  background: var(--section-soft) !important;
-  color: var(--section-accent) !important;
-}
-#kpiPanel .model-hero {
-  background: linear-gradient(135deg, #F7EFDF, #EBD9B6) !important;
-  color: #654A1C !important;
-  text-align: center !important;
-}
-#kpiPanel .model-hero p { color: #725C36 !important; margin-left: auto !important; margin-right: auto !important; }
-#demoPanel .model-hero {
-  background: linear-gradient(135deg, #6F5A95, #8A72B3 68%, #C2B4D8) !important;
-  color: #fff !important;
-  text-align: center !important;
-}
-#demoPanel .model-hero p { color: #F6F1FC !important; margin-left: auto !important; margin-right: auto !important; }
-#kpiPanel h3, #kpiPanel .back, #demoPanel h3, #demoPanel .eyebrow { color: var(--section-accent) !important; }
-#kpiPanel .back { display: block !important; margin: 0 auto 10px !important; }
-
-/* All non-calculator content is centered, including dynamic model detail cards. */
-#kpiPanel, #demoPanel, #vsafePanel { text-align: center !important; }
-#kpiPanel .model-card {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  color: var(--ink) !important;
-}
-#kpiPanel .model-card strong, #kpiPanel .model-card small,
-#kpiPanel .kpi h3, #kpiPanel .kpi p, #kpiPanel .model-detail,
-#demoPanel .card, #demoPanel .card p, #demoPanel .field-label,
-#demoPanel .vsafe-card, #demoPanel .vsafe-card p,
-#vsafePanel .vsafe-card, #vsafePanel .family-models,
-#vsafePanel .vsafe-note { text-align: center !important; }
-#kpiPanel .model-card .arrow { margin: 0 !important; }
-#kpiPanel .kpi {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-#kpiPanel .kpi-icon { margin: 0 auto 8px !important; }
-#kpiPanel .model-detail, #kpiPanel #modelDetail { text-align: center !important; }
-#kpiPanel .model-detail > *, #kpiPanel #modelDetail > * { margin-left: auto; margin-right: auto; }
-#demoPanel .number-input { text-align: center !important; }
-#demoPanel .model-hero .eyebrow,
-#demoPanel .model-hero h2,
-#demoPanel .model-hero p { text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
-#demoPanel .vsafe-card h3, #vsafePanel .vsafe-card h3 { color: var(--section-accent) !important; text-align: center !important; }
-#vsafePanel .family-models { margin-left: auto !important; margin-right: auto !important; }
-#vsafePanel .vsafe-note { color: #855050 !important; background: var(--section-soft) !important; border-color: var(--section-line) !important; }
-#vsafePanel .vsafe-checklist { text-align: center !important; list-style-position: inside !important; padding-left: 0 !important; }
-#vsafePanel .vsafe-actions { justify-items: center !important; }
-#vsafePanel .vsafe-actions .btn { width: 100%; max-width: 420px; box-sizing: border-box; }
-
-/* Strict text alignment for every non-calculator section, including dynamically rendered content. */
-#kpiPanel, #kpiPanel *, #demoPanel, #demoPanel *, #vsafePanel, #vsafePanel * { text-align: center !important; }
-#kpiPanel .model-card strong, #kpiPanel .kpi h3 { color: var(--section-accent) !important; }
-#demoPanel .vsafe-card h3 { color: var(--section-accent) !important; }
-
-/* Benefits: icon first, centered, and recolorable to the coral section accent. */
-#vsafePanel .vsafe-benefit {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 9px !important;
-  text-align: center !important;
-  border-top-color: var(--section-line) !important;
-  padding: 15px 0 !important;
-}
-#vsafePanel .vsafe-benefit > div:last-child { width: 100% !important; text-align: center !important; }
-#vsafePanel .vsafe-benefit .ico {
-  width: 46px !important; height: 46px !important; flex: 0 0 46px !important;
-  border-radius: 15px !important; background: var(--section-soft) !important;
-  color: var(--section-accent) !important; display: grid !important; place-items: center !important;
-  margin: 0 auto !important; font-size: 22px !important;
-}
-#vsafePanel .vsafe-benefit .ico svg { display: block !important; width: 24px !important; height: 24px !important; stroke: currentColor !important; }
-#vsafePanel .vsafe-benefit strong { display: block !important; color: var(--section-accent) !important; text-align: center !important; }
-#vsafePanel .vsafe-benefit p { color: var(--muted) !important; text-align: center !important; margin-left: auto !important; margin-right: auto !important; }
-
-/* v97: demo controls use readable violet rather than the inherited vivo blue. */
-#demoPanel .btn,
-#demoPanel #demoMoreLink,
-#demoPanel a,
-#demoPanel button { background: #8A72B3 !important; color: #fff !important; border: 1px solid #8A72B3 !important; }
-#demoPanel .btn-soft { background: #F0ECF6 !important; color: #5E477F !important; border-color: #DED4EB !important; }
-#demoPanel .note, #demoPanel .field-label, #demoPanel .vsafe-card p { color: #51445F !important; }
-
-/* Buttons and links follow the accent of their current section without changing functionality. */
-#kpiPanel .btn, #kpiPanel .back { color: var(--section-accent) !important; }
-#demoPanel .btn { background: var(--section-soft) !important; color: var(--section-accent) !important; border-color: var(--section-line) !important; }
-#vsafePanel .btn-primary { background: var(--section-accent) !important; border-color: var(--section-accent) !important; color: #fff !important; }
-#vsafePanel .btn-soft { background: var(--section-soft) !important; border-color: var(--section-line) !important; color: var(--section-accent) !important; }
-/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
-#navCalc, #navCalc.navcard, #navCalc.navcard.active {
-  border: 1.25px solid #7F9482 !important;
-  box-shadow: none !important;
-}
-</style>
 
 
-<style id="vivonet-v97-targeted-followups">
-/* v97: each catalog model keeps its own pastel icon color; cards are slightly more compact. */
-#kpiPanel .model-card { padding: 11px 12px !important; gap: 9px !important; border-radius: 15px !important; }
-#kpiPanel .model-card .phone-badge { flex-basis: 62px !important; width: 62px !important; height: 74px !important; border-radius: 13px !important; box-shadow: inset 0 0 0 1px #ffffff80 !important; font-size: 31px !important; }
-#kpiPanel .model-card .phone-badge { background: var(--model-icon-bg, #e7f1ff); }
-/* Calculator section consistently uses its approved sage accent; fields and numeric values remain practical/right-aligned. */
-#calcPanel .panelhead h2,
-#calcPanel .card > h3 { color: var(--section-accent) !important; }
-#calcPanel .pill { color: var(--section-accent) !important; background: var(--section-soft) !important; }
-#calcPanel .calc-groups details { border-color: var(--section-line) !important; }
-#calcPanel .calc-groups summary { background: var(--section-soft) !important; color: var(--section-accent) !important; }
-#calcPanel .stats .stat { background: var(--section-soft) !important; border: 1px solid var(--section-line) !important; }
-#calcPanel .stats .stat strong,
-#calcPanel .grand,
-#calcPanel .feedback { color: var(--section-accent) !important; }
-#calcPanel .btn-primary, #calcPanel .key.eq { background: var(--section-accent) !important; color: #fff !important; }
-#calcPanel .btn-soft, #calcPanel .key.op { background: var(--section-soft) !important; color: var(--section-accent) !important; }
-#calcPanel .number-input:focus, #calcPanel .qty:focus { outline-color: var(--section-accent) !important; border-color: var(--section-accent) !important; }
-#calcPanel .card { border-color: var(--section-line) !important; }
-#calcPanel .field-label { color: var(--section-accent) !important; }
-
-/* v98 refinements requested: consistent demo contrast, compact model cards and VSafe layout. */
-#kpiPanel .model-card { gap: 9px !important; padding: 12px 14px !important; }
-#kpiPanel .model-card .arrow { display: none !important; }
-#kpiPanel .model-card .phone-badge { width: 42px !important; height: 42px !important; min-width: 42px !important; border-radius: 13px !important; }
-#kpiPanel .model-card strong { color: #263449 !important; }
-#kpiPanel #modelDetail, #kpiPanel #modelDetail p, #kpiPanel #modelDetail li,
-#kpiPanel #modelDetail small, #kpiPanel #modelDetail .muted,
-#kpiPanel #modelDetail .detail-copy { color: #334155 !important; }
-#kpiPanel #modelDetail h2, #kpiPanel #modelDetail h3 { color: var(--section-accent) !important; }
-#demoPanel .model-hero .eyebrow { color: #FFFFFF !important; opacity: 1 !important; font-weight: 700 !important; }
-#demoPanel .model-hero h2 { color: #FFFFFF !important; }
-#demoPanel .model-hero p { color: #FFFFFF !important; }
-#demoPanel .model-hero { background: #8A72B3 !important; }
-#demoPanel #demoMoreLink { background: #8A72B3 !important; color: #FFFFFF !important; border-color: #8A72B3 !important; }
-#demoPanel .field-label, #demoPanel label { color: #5D4A7D !important; }
-#vsafePanel .family-models strong { display: block !important; margin-bottom: 5px !important; }
-#vsafePanel .family-models { line-height: 1.5 !important; }
-#vsafePanel .vsafe-actions a::before, #vsafePanel .vsafe-actions a svg { display: none !important; content: none !important; }
-
-/* v99: restore model summaries without arrows; keep this CSS inside the stylesheet. */
-#kpiPanel .model-card-summary { display:block !important; margin-top:4px !important; color:#64748b !important; font-size:11px !important; line-height:1.35 !important; font-weight:500 !important; white-space:normal !important; text-align:center !important; }
-#kpiPanel .model-card-copy { flex:1 1 auto; min-width:0; text-align:center !important; }
-
-/* v103-v104: contornos cromáticos visibles en tarjetas de inicio y contorno azul en accesos inferiores. */
-#navCalc.navcard, #navCalc.navcard.active { border: 1.25px solid #7F9482 !important; }
-#navKpi.navcard, #navKpi.navcard.active { border: 1.25px solid #B98935 !important; }
-#navDemo.navcard, #navDemo.navcard.active { border: 1.25px solid #8A72B3 !important; }
-#navVsafe.navcard, #navVsafe.navcard.active { border: 1.25px solid #C96D6D !important; }
-.home-curio.curio-card, .home-curio { border: 1.25px solid #E8A8CA !important; }
-.vigo-feature-card { border: 1.25px solid #008F8B !important; }
-.promo-announcement { border: 1.25px solid #C5A98C !important; }
-/* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
-#navCalc, #navCalc.navcard, #navCalc.navcard.active {
-  border: 1.25px solid #7F9482 !important;
-  box-shadow: none !important;
-}
-</style>
 
 
-<style id="vivonet-v107-spacing-curiosity-click">
-/* v107: espacios ajustados según lo solicitado */
-:root { --section-gap: 12px !important; --layout-gap: 12px !important; }
-main, .main-content, .content, .sections, .section-grid, .cards-grid, .button-row, .bottom-buttons, .app-grid { gap: 12px !important; row-gap: 12px !important; column-gap: 12px !important; }
-header.topbar { padding-bottom: 12px !important; }
-.promo-announcement { margin-bottom: 12px !important; }
-.curio-card.home-curio { margin-bottom: 12px !important; }
-.navgrid { gap: 12px !important; }
-footer[aria-label="Accesos directos"] { margin-top: 26px !important; }
-@media (max-width: 559px) { header.topbar { padding-bottom: 12px !important; } }
-/* La tarjeta completa es el control; no se muestra la flecha rosa. */
-.home-curio { cursor: pointer; }
-.home-curio:focus-visible { outline: 2px solid #E6007E; outline-offset: 3px; }
-.curio-next-wrap, .curio-next-btn { display: none !important; }
-</style>
+
+
+
 
 </body>
 </html>
