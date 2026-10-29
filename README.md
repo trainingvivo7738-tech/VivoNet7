@@ -1,20 +1,18 @@
-# VivoNet — versión 111
+# VivoNet — paquete reconstruido v120
 
-Paquete completo de VivoNet basado en el HTML aprobado por separado.
+Este ZIP se reconstruyó usando como fuente única el HTML aprobado `VivoNet_v119_vigo_mas_compacto.html`.
 
 ## Archivos principales
-- `index.html`: entrada principal de la aplicación; coincide exactamente con `VivoNet_v44_original.html` y con el HTML aprobado.
-- `VivoNet_v44_original.html`: alias compatible con el nombre utilizado en paquetes anteriores; no contiene una versión antigua.
-- `vigo.html`: asistente Vigo.
-- `manifest.webmanifest`, `service-worker.js` e iconos: instalación PWA, caché y recursos visuales.
+- `index.html`: aplicación principal; coincide byte por byte con el HTML de referencia entregado.
+- `VivoNet_v44_original.html`: alias histórico; es idéntico a `index.html` y no es una versión antigua.
+- `vigo.html`: Vigo independiente; coincide exactamente con el payload de Vigo integrado dentro de `index.html`.
+- `service-worker.js`: caché `vivonet-v120` para forzar la renovación de recursos al publicar el paquete.
+- `manifest.webmanifest`, iconos y `.nojekyll`: recursos de publicación e instalación.
 
-## Cambios que contiene el HTML
-- Separación solicitada de 12 px entre secciones.
-- Separación de 26 px antes de los botones inferiores.
-- La tarjeta «¿Sabías que…?» no muestra la flecha rosa y cambia curiosidad/consejo al tocarla; también acepta Enter y barra espaciadora.
-
-## Actualización de caché
-El service worker usa la caché `vivonet-v111` para no reutilizar la caché de una versión anterior al actualizar la aplicación instalada.
+## Espaciado aprobado en el HTML
+- Espacios generales: 9 px.
+- Entre las secciones y los accesos inferiores: 14 px.
+- Tarjeta de Vigo: versión compacta aprobada (v119), sin cambios visuales adicionales en esta reconstrucción.
 
 ## Publicación
-Extrae todos los archivos y publica su contenido completo en la raíz de tu sitio. Después de actualizar una instalación existente, abre la página con conexión para que se active la nueva caché.
+Extrae todos los archivos y publica el contenido completo en la raíz del sitio. Al actualizar una instalación previa, abre el sitio con conexión y cierra las pestañas antiguas para que el service worker nuevo pueda activarse.

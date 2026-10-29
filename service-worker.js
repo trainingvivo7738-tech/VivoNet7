@@ -1,4 +1,4 @@
-const CACHE_NAME = 'vivonet-v119';
+const CACHE_NAME = 'vivonet-v120';
 const APP_SHELL = [
   './',
   './index.html',
