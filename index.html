@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#064B9B">
+<meta name="description" content="Herramientas de apoyo para promotores vivo: calculadora, catálogo, demostraciones y beneficios VSafe.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>VivoNet</title>
+<style>
+:root{--blue:#1456c0;--deep:#103b87;--cyan:#24b8e8;--bg:#f3f7fc;--ink:#14243a;--muted:#64748b;--line:#e2eaf4;--white:#fff;--radius:20px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(180deg,#eaf5ff 0,#f5f8fc 260px)}
+button,input,select{font:inherit}button{cursor:pointer}
+.topbar{padding:calc(18px + env(safe-area-inset-top)) 18px 26px;background:#064B9B;color:#fff;border-radius:0 0 28px 28px;box-shadow:0 10px 28px #174a8e24}
+.brandrow{display:flex;align-items:center;gap:12px}.brandmark{width:46px;height:46px;border-radius:15px;background:#ffffff20;display:grid;place-items:center;border:1px solid #ffffff4a;font-weight:900;font-size:20px;letter-spacing:-1px}.brandname{font-size:22px;font-weight:850;letter-spacing:-.5px}.brandtag{font-size:12px;opacity:.85;margin-top:2px}.welcome{margin-top:0}.welcome h1{font-size:28px;line-height:1.1;margin:0 0 8px;letter-spacing:-.8px;cursor:pointer;user-select:none}.welcome h1:focus-visible{outline:2px solid #fff;border-radius:5px;outline-offset:4px}
+.master-overlay{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:22px;background:#07152be8;backdrop-filter:blur(8px)}.master-box{width:min(100%,360px);text-align:center;color:#fff;border:1px solid #e9c76d88;border-radius:26px;padding:30px 22px;background:radial-gradient(circle at top,#244b86,#0b1d3c 68%);box-shadow:0 20px 70px #0008;animation:masterPop .35s ease-out}.master-trophy{font-size:58px;line-height:1.2;margin-bottom:12px}.master-kicker{font-size:11px;font-weight:900;letter-spacing:3px;color:#f4d77e}.master-box h2{font-size:34px;letter-spacing:1px;margin:8px 0;color:#ffe18a}.master-box p{font-size:14px;line-height:1.55;color:#e4edff;margin:0 0 20px}.master-close{border:0;border-radius:12px;background:#ffe18a;color:#172747;padding:12px 22px;font-weight:900}@keyframes masterPop{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:scale(1)}}.welcome h2{font-size:18px;line-height:1.2;margin:0 0 8px;font-weight:750}.welcome p{margin:0;font-size:14px;line-height:1.45;max-width:360px;color:#eaf5ff}
+main{max-width:760px;margin:0 auto;padding:18px 14px 34px}.navgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:-2px}.navcard{background:#fff;border:1px solid #e1eaf5;border-radius:18px;padding:13px 10px;box-shadow:0 5px 18px #123d7010;text-align:left;color:var(--ink);min-height:134px;transition:transform .15s,border-color .15s}.navcard:active{transform:scale(.985)}.navcard.active{border:2px solid var(--blue);padding:15px 13px}.navicon{width:42px;height:42px;border-radius:14px;background:#eaf3ff;display:grid;place-items:center;font-size:22px;margin-bottom:14px}.navtitle{font-weight:800;font-size:14px}.navsub{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.35}
+.panel{margin-top:18px}.panelhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 2px 12px}.panelhead h2{font-size:21px;letter-spacing:-.4px;margin:0}.panelhead p{font-size:12px;color:var(--muted);margin:5px 0 0}.pill{font-size:11px;color:var(--blue);background:#e7f1ff;border-radius:999px;padding:7px 10px;font-weight:800;white-space:nowrap}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-bottom:12px;box-shadow:0 4px 16px #143b6b08}.model-grid{display:grid;grid-template-columns:1fr;gap:11px}.model-card{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:18px;padding:16px;display:flex;align-items:center;gap:13px;color:var(--ink)}.phone-badge{flex:0 0 78px;height:92px;border-radius:16px;background:linear-gradient(150deg,#e6f5ff,#eaf0ff);display:grid;place-items:center;overflow:hidden}.phone-badge{font-size:38px;line-height:1;box-shadow:inset 0 0 0 1px #ffffff80}.phone-badge img{width:100%;height:100%;object-fit:contain;padding:5px}.model-card strong{display:block;font-size:16px}.model-card small{display:block;color:var(--muted);font-size:12px;margin-top:4px}.arrow{margin-left:auto;color:var(--blue);font-size:24px}.back{border:0;background:transparent;color:var(--blue);font-weight:800;padding:8px 0;margin-bottom:8px}.model-hero{background:linear-gradient(135deg,#0d3f91,#1b6bd6);color:white;border-radius:22px;padding:20px;margin-bottom:12px;overflow:hidden;position:relative}.model-hero:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-70px;top:-65px;background:#ffffff10}.model-hero .eyebrow{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;opacity:.8;font-weight:800}.model-hero h2{font-size:26px;margin:8px 0 6px;letter-spacing:-.7px}.model-hero p{font-size:13px;line-height:1.5;margin:0;max-width:320px;color:#eaf4ff}.kpi-list{display:grid;grid-template-columns:1fr;gap:10px}.kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:start}.kpi-icon{height:46px;width:46px;border-radius:15px;background:#eaf4ff;display:grid;place-items:center;font-size:23px}.kpi h3{margin:0 0 6px;font-size:16px;line-height:1.25}.kpi .value{font-size:12px;font-weight:850;color:var(--blue);margin-bottom:8px}.kpi p{margin:0;font-size:14px;line-height:1.55;color:#42536a}.source-note{font-size:11px;line-height:1.5;color:var(--muted);padding:4px 4px 0}
+.hidden{display:none!important}.field-label{display:block;font-size:12px;font-weight:800;margin-bottom:6px}.number-input{width:100%;border:1px solid #d9e4f1;border-radius:12px;padding:12px;background:#fff;color:var(--ink)}.calc-groups details{border:1px solid var(--line);border-radius:14px;margin:8px 0;overflow:hidden}.calc-groups summary{cursor:pointer;padding:13px;background:#f8fbff;color:var(--deep);font-weight:800;display:flex;justify-content:space-between;gap:8px}.calc-row{display:grid;grid-template-columns:1fr 94px;gap:8px;align-items:center;padding:10px 12px;border-top:1px solid #edf2f8;font-size:13px}.calc-row small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.qty{width:94px;text-align:right;border:1px solid #d9e4f1;border-radius:9px;padding:9px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#eff6ff;border-radius:14px;padding:12px}.stat small{display:block;color:var(--muted);font-size:11px}.stat strong{display:block;font-size:20px;margin-top:4px;color:var(--deep)}.summaryline{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #edf2f8;font-size:14px}.summaryline:last-child{border:0}.grand{font-size:17px;font-weight:900;color:var(--deep)}.btn{border:0;border-radius:12px;padding:12px 14px;font-weight:800}.btn-primary{background:var(--blue);color:#fff}.btn-soft{background:#eaf2ff;color:var(--blue)}.btn-danger{background:#fff0f0;color:#a32424}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.actions .btn{flex:1}.note{font-size:11px;line-height:1.5;color:var(--muted)}.feedback{font-size:12px;color:var(--blue);min-height:18px;margin-top:8px}.calculator-screen{border-radius:18px;background:#0e2450;color:#fff;padding:18px;margin-bottom:12px;text-align:right}.calc-small{font-size:12px;color:#a9c7f4;min-height:18px}.calc-display{font-size:34px;font-weight:800;overflow-wrap:anywhere;min-height:44px}.keypad{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.key{border:0;border-radius:13px;padding:17px 0;background:#edf4fd;color:#173968;font-size:18px;font-weight:800}.key.op{background:#dcecff;color:var(--blue)}.key.eq{background:var(--blue);color:white}.key.wide{grid-column:span 2}.section-hidden{display:none}.vsafe-hero{background:linear-gradient(135deg,#103b87,#1766d7 68%,#24b8e8);color:#fff;border-radius:22px;padding:22px;margin-bottom:12px}.vsafe-hero .shield{font-size:34px;margin-bottom:10px}.vsafe-hero h2{margin:0 0 8px;font-size:24px}.vsafe-hero p{margin:0;color:#eaf5ff;font-size:14px;line-height:1.5}.vsafe-grid{display:grid;grid-template-columns:1fr;gap:12px}.vsafe-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 4px 16px #143b6b08}.vsafe-card h3{margin:0 0 12px;font-size:18px}.vsafe-benefit{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #edf2f8}.vsafe-benefit:first-of-type{border-top:0}.vsafe-benefit .ico{width:42px;height:42px;flex:0 0 42px;border-radius:13px;background:#eaf3ff;display:grid;place-items:center;font-size:22px}.vsafe-benefit strong{display:block;font-size:14px}.vsafe-benefit p{margin:4px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}.vsafe-actions{display:grid;gap:9px;margin-top:14px}.vsafe-actions .btn{display:block;text-align:center;text-decoration:none}.vsafe-cac{background:#fff0f0;border:1px solid #f2c5c5;color:#8e2020;border-radius:14px;padding:13px;font-size:13px;line-height:1.5;margin-top:12px}.vsafe-checklist{margin:8px 0 0;padding-left:20px;font-size:13px;line-height:1.7;color:var(--muted)}.vsafe-note{background:#fff8e6;border:1px solid #f4dfaa;color:#725315;border-radius:14px;padding:13px;font-size:12px;line-height:1.5;margin-top:12px}
+footer{text-align:center;font-size:11px;color:#8391a5;padding:20px 0 8px}
+.footer-links{display:grid;grid-template-columns:repeat(2,minmax(0,124px));width:max-content;max-width:100%;margin:0 auto;gap:8px;align-items:stretch;justify-content:center}
+.footer-link{display:flex;min-width:0;width:100%;min-height:34px;box-sizing:border-box;align-items:center;justify-content:center;gap:5px;padding:6px 8px;border:1px solid #dce6f2;border-radius:999px;background:#fff;color:#42536a;text-decoration:none;font-size:10px;font-weight:800;line-height:1.2;white-space:nowrap;box-shadow:0 2px 7px #123d7008;transition:background .15s,border-color .15s}
+.footer-link:active{background:#eef5ff;border-color:#b8cfee}
+.footer-link svg{width:13px;height:13px;flex:0 0 13px}
+@media(min-width:560px){.model-grid{grid-template-columns:1fr 1fr}.kpi-list{grid-template-columns:1fr 1fr}.kpi{min-height:190px}.navcard{min-height:145px}.calc-groups .group-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.calc-groups details{margin:0}.stats{grid-template-columns:repeat(4,1fr)}}
+
+    .family-models{margin: -4px 0 14px;color:var(--muted,#64748b);font-size:.92rem;line-height:1.45}
+
+.promo-announcement{margin:14px 0 0;background:#fff;border:1px solid #eadfd3;border-radius:17px;padding:11px 12px;color:#302820;box-shadow:0 5px 18px #143b6b10}.promo-head{display:flex;align-items:center;gap:8px;color:#865E3C;font-size:10px;font-weight:850;letter-spacing:.6px;text-transform:uppercase;margin-bottom:6px}.promo-head-icon{width:28px;height:28px;flex:0 0 28px;border-radius:9px;background:#F1E8DD;color:#865E3C;display:grid;place-items:center}.promo-head-icon svg{width:16px;height:16px}.promo-title{font-size:17px;font-weight:850;line-height:1.2;margin:0 0 4px;letter-spacing:-.3px}.promo-sub{font-size:12px;color:#65594d;margin:0 0 7px}.promo-amount{background:#F1E8DD;border-radius:11px;padding:7px 10px;margin-bottom:8px}.promo-amount strong{display:block;color:#865E3C;font-size:23px;letter-spacing:-.6px}.promo-amount span{font-size:12px;color:#51463B}.promo-details{display:grid;gap:5px;font-size:12px;line-height:1.35}.promo-detail{display:flex;align-items:flex-start;gap:7px}.promo-detail svg{flex:0 0 17px;color:#865E3C;margin-top:1px}
+
+
+.curio-card{background:#fff;border:1px solid #f3c2dc;border-radius:17px;padding:13px;box-shadow:0 5px 16px #e4007c10;overflow:hidden;margin:0 0 14px}
+.curio-bulb{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:#FCE4F1;color:#E4007C;margin:0}
+.curio-kicker{font-size:10px;letter-spacing:1.2px;font-weight:900;color:#E4007C}.home-curio-head{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.curio-card h3{font-size:17px;line-height:1.25;letter-spacing:-.25px;margin:5px 0 7px;color:#202235}
+.curio-fact{font-size:12px;line-height:1.5;color:#475569;margin:0 0 9px}
+.curio-block{border-radius:11px;background:#fff5fa;border:1px solid #f8d9e9;padding:9px;margin-top:7px}
+.curio-block strong{font-size:11px;color:#B60062;display:block;margin-bottom:3px}
+.curio-block p{font-size:11px;line-height:1.45;color:#4b4250;margin:0}
+.curio-phrase{background:#fff;border-color:#f1c1d9}
+.curio-source{font-size:10px;line-height:1.4;color:#64748b;margin:8px 0 0}
+.curio-source a{color:#C6006B;font-weight:800}
+.curio-actions{display:flex;justify-content:flex-end;gap:7px;margin-top:10px}.curio-actions .btn{flex:0 0 auto;min-width:0;padding:7px 10px;font-size:11px}
+.btn-curio{background:#E4007C;color:#fff}
+
+
+/* Tarjeta de curiosidades equilibrada: compacta sin apretar el resto de VivoNet. */
+.home-curio{padding:12px 14px 10px;margin:0 0 11px}
+.home-curio .home-curio-head{margin-bottom:5px}
+.home-curio .curio-bulb{width:32px;height:32px;border-radius:10px}.home-curio .curio-bulb svg{width:19px;height:19px}
+.home-curio .curio-fact{margin:0;color:#526071;font-size:13px;line-height:1.35;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;min-height:0}
+.home-curio .curio-actions{margin-top:6px}
+.home-curio .curio-actions .btn{padding:6px 9px;font-size:11px;border-radius:999px}
+
+
+/* Ajuste final de VivoNet v44 para que el inicio quepa mejor en móvil. */
+.home-curio .curio-kicker{color:#111827;font-weight:850;letter-spacing:.5px}
+.home-curio .curio-fact{
+  font-size:12.5px;
+  line-height:1.32;
+  min-height:calc(1.32em * 3);
+  -webkit-line-clamp:3;
+  line-clamp:3;
+}
+.home-curio{padding:10px 13px 9px;margin-bottom:9px}
+.home-curio .home-curio-head{margin-bottom:4px}
+.home-curio .curio-bulb{width:30px;height:30px}
+.home-curio .curio-bulb svg{width:18px;height:18px}
+.home-curio .curio-actions{margin-top:5px}
+.home-curio .curio-actions .btn{padding:5px 9px;font-size:11px}
+.promo-announcement{padding:9px 11px;margin-top:12px}
+.promo-head{margin-bottom:6px}
+.promo-title{font-size:16px;margin-bottom:3px}
+.promo-sub{margin-bottom:6px}
+.promo-amount{padding:6px 9px;margin-bottom:6px}
+.promo-amount strong{font-size:22px}
+.promo-details{gap:4px;line-height:1.3}
+.welcome h1{margin-bottom:6px}
+.navgrid{gap:9px}
+.navcard{padding:11px 9px;min-height:126px}
+
+
+/* Ajuste final de altura para mostrar también los enlaces del pie */
+main{padding-top:14px;padding-bottom:12px}
+.welcome h1{margin-bottom:6px}
+.welcome p{margin-bottom:0}
+.promo-announcement{margin-top:10px;padding:9px 11px;border-radius:16px}
+.promo-head{margin-bottom:4px}
+.promo-head-icon{width:26px;height:26px;flex-basis:26px}
+.promo-title{font-size:16px;margin-bottom:3px}
+.promo-sub{margin-bottom:5px}
+.promo-amount{padding:5px 9px;margin-bottom:6px}
+.promo-amount strong{font-size:21px}
+.promo-details{gap:4px;line-height:1.28}
+.curio-card.home-curio{padding:10px 12px 9px;margin:0 0 10px}
+.home-curio .home-curio-head{margin-bottom:4px}
+.home-curio .curio-bulb{width:30px;height:30px;border-radius:9px}
+.home-curio .curio-kicker{font-size:10px;font-weight:900;color:#111827;letter-spacing:.6px}
+.home-curio .curio-fact{font-size:12px;line-height:1.35;min-height:40.5px;max-height:40.5px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;margin:0 0 5px}
+.home-curio .curio-actions{margin-top:4px}
+.home-curio .curio-next{padding:6px 10px;font-size:11px}
+.navgrid{gap:8px}
+.navcard{padding:10px 9px;min-height:122px}
+.navicon{width:38px;height:38px;margin-bottom:9px}
+.navcard h2,.navcard h3{margin-bottom:4px}
+footer{padding:8px 0 2px}
+.footer-links{gap:6px}
+.footer-link{min-height:30px;padding:5px 7px}
+
+
+
+/* Ajuste: curiosidades con espacio reservado para exactamente tres renglones. */
+.home-curio .curio-fact{
+  font-size:12px;
+  line-height:1.35;
+  min-height:calc(1.35em * 3);
+  max-height:calc(1.35em * 3);
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+  overflow:hidden;
+  margin:0 0 5px;
+}
+.home-curio .curio-kicker{color:#E4007C !important;font-weight:900}
+.promo-head,.promo-title{color:#865E3C}
+#navCalc .navtitle{color:#26965A !important}
+#navKpi .navtitle{color:#D99000 !important}
+#navDemo .navtitle{color:#8156C7 !important}
+#navVsafe .navtitle{color:#D95757 !important}
+
+
+/* Ajuste fino: tarjetas de secciones con anchura idéntica y botón de curiosidad más corto. */
+.navgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;align-items:stretch}
+.navgrid>.navcard{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;justify-self:stretch}
+.home-curio .curio-next{padding:5px 8px !important;font-size:10.5px !important;letter-spacing:-.1px;min-width:0}
+
+/* VivoNet v44: curiosidad + aplicación práctica para vender, aprovechando el espacio extra del móvil. */
+.home-curio .curio-section{margin-bottom:8px}
+.home-curio .curio-label{font-size:10px;line-height:1.25;font-weight:900;letter-spacing:.35px;color:#E4007C;margin:0 0 3px}
+.home-curio .curio-fact{font-size:12px;line-height:1.35;min-height:0;max-height:none;display:block;overflow:visible;margin:0;color:#475569}
+.home-curio .curio-sales{background:#fff5fa;border:1px solid #f8d9e9;border-radius:10px;padding:8px 9px;margin-top:5px}
+.home-curio .curio-tip{font-size:12px;line-height:1.35;margin:0;color:#3f3b45}
+.home-curio .curio-actions{margin-top:8px}
+.home-curio .curio-next{padding:6px 10px !important;font-size:11px !important}
+
+/* Regla de oro: curiosidad en 3 líneas exactas y consejo de venta en 2. */
+.home-curio .curio-fact{white-space:pre-line;display:block !important;min-height:calc(1.35em * 3) !important;max-height:none !important;overflow:visible !important;line-height:1.35 !important;-webkit-line-clamp:unset !important;line-clamp:unset !important;}
+.home-curio .curio-tip{white-space:pre-line;display:block;min-height:calc(1.35em * 2);line-height:1.35 !important;overflow:visible;}
+
+/* Ajustes solicitados: limpiar el borde del viewport y subir los accesos inferiores. */
+html, body { border: 0 !important; outline: 0 !important; }
+footer[aria-label="Accesos directos"] {
+  margin-top: 12px !important;
+  padding-top: 4px !important;
+  padding-bottom: 2px !important;
+  border: 0 !important;
+  outline: 0 !important;
+}
+
+
+/* Corrección móvil: eliminar la línea superior y mostrar los accesos inferiores sin desplazamiento. */
+html, body { border: 0 !important; outline: 0 !important; }
+.topbar { border-top: 0 !important; outline: 0 !important; padding-bottom: 18px !important; }
+main { padding-top: 12px !important; padding-bottom: 8px !important; }
+.promo-announcement { margin-top: 10px !important; }
+.curio-card.home-curio { margin-bottom: 8px !important; padding-top: 8px !important; padding-bottom: 7px !important; }
+.navgrid { gap: 7px !important; }
+.navcard { min-height: 112px !important; padding-top: 8px !important; padding-bottom: 8px !important; }
+.navicon { margin-bottom: 7px !important; }
+footer[aria-label="Accesos directos"] { margin-top: 10px !important; padding-top: 2px !important; padding-bottom: 2px !important; border: 0 !important; outline: 0 !important; }
+@media (max-height: 820px) {
+  .topbar { padding-bottom: 14px !important; }
+  main { padding-top: 9px !important; }
+  .promo-announcement { padding-top: 8px !important; padding-bottom: 8px !important; }
+  .curio-card.home-curio { padding: 7px 10px 6px !important; }
+  .home-curio .curio-section { margin-bottom: 5px !important; }
+  .home-curio .curio-sales { padding: 6px 8px !important; margin-top: 3px !important; }
+  .navcard { min-height: 106px !important; }
+}
+
+/* Cambio visual solicitado: centrar solo el encabezado y la curiosidad de ¿SABÍAS QUE...? */
+.home-curio .home-curio-head {
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 6px !important;
+}
+.home-curio .curio-kicker { text-align: center !important; }
+.home-curio .curio-section,
+.home-curio .curio-fact { text-align: center !important; }
+
+
+/* Botón pequeño con flecha de siguiente dentro de la tarjeta. */
+.curio-next-wrap{display:flex;justify-content:center;align-items:center;margin:7px 0 0;}
+.curio-next-btn{appearance:none;border:0;border-radius:50%;width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;background:#fff5fa;color:#E4007C;padding:7px;border:1px solid #f8d9e9;box-shadow:0 2px 6px #E4007C18;cursor:pointer;}
+.curio-next-btn svg{width:17px;height:17px;display:block;}
+.curio-next-btn:active{transform:scale(.96);}
+.curio-next-btn:focus-visible{outline:2px solid #E4007C;outline-offset:3px;}
+
+/* La tarjeta completa cambia la curiosidad al tocarla. */
+.home-curio { cursor: pointer; }
+.home-curio:focus-visible { outline: 2px solid #E6007E; outline-offset: 3px; }
+
+/* Ajuste visual: quitar el foco y centrar también el bloque de venta. */
+.home-curio .curio-sales { text-align: center !important; }
+.home-curio .curio-label,
+.home-curio .curio-tip { text-align: center !important; }
+
+/* v58: encabezado azul uniforme y accesos inferiores con un poco más de aire */
+.topbar{background:#064B9B !important;}
+footer[aria-label="Accesos directos"]{margin-top:18px !important;}
+</style>
+
+<style id="fix-equal-navcard-widths">
+/* Mantiene las cuatro tarjetas con exactamente el mismo ancho, incluso al seleccionarlas. */
+.navgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+.navgrid > .navcard{box-sizing:border-box !important;width:100% !important;min-width:0 !important;margin:0 !important;}
+.navgrid > .navcard.active{box-sizing:border-box !important;padding:13px 10px !important;border:2px solid var(--blue) !important;}
+</style>
+
+<style id="vivonet-color-coherent-borders">
+/* Bordes finos y suaves para dar a cada sección su propio acento sin recargar la pantalla. */
+.promo-announcement{border-color:#E6D6C6 !important;}
+.curio-card.home-curio{border:1px solid #F0A9D0 !important;}
+.navgrid > .navcard:nth-child(1){border:1px solid #BFE3CC !important;}
+.navgrid > .navcard:nth-child(2){border:1px solid #F2D99A !important;}
+.navgrid > .navcard:nth-child(3){border:1px solid #D8C8F2 !important;}
+.navgrid > .navcard:nth-child(4){border:1px solid #F1C3C3 !important;}
+.navgrid > .navcard:nth-child(1) .navtitle{color:#26965A !important;}
+.navgrid > .navcard:nth-child(2) .navtitle{color:#D99000 !important;}
+.navgrid > .navcard:nth-child(3) .navtitle{color:#8156C7 !important;}
+.navgrid > .navcard:nth-child(4) .navtitle{color:#D95757 !important;}
+/* El estado seleccionado conserva dimensiones y usa un contorno de su familia de color. */
+.navgrid > .navcard:nth-child(1).active{border:2px solid #26965A !important;}
+.navgrid > .navcard:nth-child(2).active{border:2px solid #D99000 !important;}
+.navgrid > .navcard:nth-child(3).active{border:2px solid #8156C7 !important;}
+.navgrid > .navcard:nth-child(4).active{border:2px solid #D95757 !important;}
+</style>
+
+
+<style id="vivonet-uniform-spacing-v60">
+/* V60: conserva los tres espacios congruentes y deja aire bajo el anuncio dentro del encabezado azul. */
+@media (max-width: 559px) {
+  .topbar { padding-bottom: 18px !important; }
+  main { padding-top: 12px !important; }
+  .curio-card.home-curio { margin-bottom: 12px !important; }
+  .navgrid { margin-top: 0 !important; }
+  footer[aria-label="Accesos directos"] { margin-top: 12px !important; }
+}
+</style>
+
+
+
+<style id="vivonet-v64-header-inner-padding">
+/* V65: margen inferior de 12 px para mantener la misma separación que el resto de la interfaz. */
+header.topbar { padding-bottom: 12px !important; }
+@media (max-width: 559px) { header.topbar { padding-bottom: 12px !important; } }
+</style>
+
+
+<style id="vivonet-v66-all-spacing-11px">
+/* V66: unifica las separaciones entre elementos en 11 px sin alterar el relleno interno de tarjetas y botones. */
+:root { --section-gap: 11px; --layout-gap: 11px; }
+main, .main-content, .content, .sections, .section-grid, .cards-grid, .button-row, .bottom-buttons, .app-grid { gap: 11px !important; row-gap: 11px !important; column-gap: 11px !important; }
+header.topbar { padding-bottom: 11px !important; }
+@media (max-width: 559px) { header.topbar { padding-bottom: 11px !important; } }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="welcome"><h1 id="welcomeTitle" role="button" tabindex="0" aria-label="Título de VivoNet">Bienvenidos a VivoNet</h1><p>Tus herramientas de venta, en un solo lugar.</p></div>
+  <section class="promo-announcement" aria-label="Anuncio de bono especial">
+    <div class="promo-head"><span class="promo-head-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4h4l9 4V6l-9 4H3Z"/><path d="M7 14l2.2 5.2a1.4 1.4 0 0 0 2.6-1l-1.1-2.8"/><path d="M19 9c1.5 1.5 1.5 4.5 0 6"/></svg></span></div>
+    <p class="promo-title">INCENTIVO ESPECIAL</p>
+    <p class="promo-sub">Si vendes V80 Lite 5G recibirás:</p>
+    <div class="promo-amount"><strong>$100 MXN extra</strong></div>
+    <div class="promo-details">
+      <div class="promo-detail"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span><b>Pago el mismo día</b> por transferencia.</span></div>
+      <div class="promo-detail"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m7 13 3 3 7-7"/></svg><span><b>Envía:</b> foto del ticket + captura de la venta en VChat.</span></div>
+    </div>
+  </section>
+</header>
+<main>
+  <article class="curio-card home-curio" id="curioCard" aria-live="polite">
+    <div class="home-curio-head"><div class="curio-kicker">¿SABÍAS QUE...?</div></div>
+    <div class="curio-section">
+      <p id="curioFact" class="curio-fact"></p>
+    </div>
+    <div class="curio-sales">
+      <div class="curio-label">¡ÚSALO EN TU VENTA!</div>
+      <p id="curioTip" class="curio-tip"></p>
+    </div>
+    <div class="curio-next-wrap"><button class="curio-next-btn" id="nextCuriosityButton" type="button" aria-label="Siguiente curiosidad" title="Siguiente curiosidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
+  </article>
+
+  <section class="navgrid" aria-label="Herramientas principales">
+    <button class="navcard" id="navCalc" type="button"><div class="navicon" style="background:#E5F2E8;color:#26965A" aria-hidden="true"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2.5" width="14" height="19" rx="3"/><path d="M8 6h8v3H8z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01M8.5 15.5h.01M12 15.5h.01M15.5 15.5h.01M8.5 19h.01M12 19h.01M15.5 19h.01" stroke-width="2.5"/></svg></div><div class="navtitle" style="color:#000">Calculadora</div><div class="navsub">Estima tus comisiones y bonos</div></button>
+    <button class="navcard" id="navKpi" type="button"><div class="navicon" style="background:#FFF0C7;color:#D99000" aria-hidden="true"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3.2"/><path d="M10 5h4" stroke-width="1.7"/><path d="M9 18.5h6" stroke-width="1.8"/></svg></div></div><div class="navtitle" style="color:#000">Catálogo</div><div class="navsub">Conoce lo más importante de cada equipo</div></button>
+    <button class="navcard" id="navDemo" type="button"><div class="navicon" style="background:#F0E8FF;color:#8156C7" aria-hidden="true"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 8 6 4-6 4z" fill="currentColor" stroke="none"/></svg></div><div class="navtitle" style="color:#000">Demostraciones</div><div class="navsub">Muestra fotos y videos de cada equipo</div></button>
+    <button class="navcard" id="navVsafe" type="button"><div class="navicon" style="background:#FCE8E8;color:#D95757" aria-hidden="true"><svg viewBox="0 0 24 24" width="27" height="27" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><path d="m9 12 2 2 4-4"/></svg></div><div class="navtitle" style="color:#000">Beneficios</div><div class="navsub">Descubre qué protección tiene cada equipo</div></button>
+  </section>
+
+  <section class="panel hidden" id="calcPanel">
+    <div class="panelhead"><div><h2>Calculadora de comisiones</h2><p>Registra cantidades y revisa tu estimado del mes.</p></div><span class="pill">Herramienta</span></div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">Captura tus ventas</h3>
+      <p class="note">Ingresa cuántas unidades vendiste de cada modelo. Las cantidades se guardan en este navegador.</p>
+      <div class="actions"><button class="btn btn-soft" id="clearQuantities" type="button">Borrar cantidades</button></div>
+      <div class="calc-groups" id="commissionModels"></div><div class="feedback" id="calcFeedback" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 12px">Resumen del mes</h3>
+      <div class="stats">
+        <div class="stat"><small>Ventas totales</small><strong id="totalUnits">0</strong></div>
+        <div class="stat"><small>Ventas de series elegibles</small><strong id="seriesUnits">0</strong></div>
+        <div class="stat"><small>Nivel aplicado</small><strong id="tierLabel">0%</strong></div>
+        <div class="stat"><small>Total bruto estimado</small><strong id="grandTop">$0</strong></div>
+      </div>
+      <div style="margin-top:10px">
+        <div class="summaryline"><span>Comisiones por celulares</span><strong id="comm">$0</strong></div>
+        <div class="summaryline"><span>Bono por volumen total</span><strong id="bonusV">$0</strong></div>
+        <div class="summaryline"><span>Bono por series V/X/Y31D</span><strong id="bonusS">$0</strong></div>
+        <div class="summaryline grand"><span>Total bruto estimado</span><strong id="grand">$0</strong></div>
+      </div>
+      <p id="threshold" class="note"></p>
+    </div>
+    <div class="card"><h3 style="margin:0 0 8px">Reglas incluidas</h3><p class="note"><b>Niveles:</b> 50% con 20–29 ventas totales o 6–8 de series; 75% con 30–39 totales o 9–11 de series; 100% con 40–59 totales o 12 o más de series; 110% con 60–79 totales; 120% con 80 o más totales. Mínimo de 20 ventas para cobrar comisión.</p><p class="note"><b>Bonos por volumen total:</b> 40–49 = $500; 50–59 = $1,000; 60–79 = $1,500; 80–99 = $2,000; 100+ = $2,500. <b>Bonos por series:</b> 12–14 = $500; 15–17 = $1,000; 18–23 = $1,500; 24–29 = $2,000; 30+ = $2,500.</p><p class="note">Es una estimación bruta con las reglas de la calculadora original. No descuenta faltas ni otros ajustes.</p></div>
+  </section>
+
+  <section class="panel hidden" id="kpiPanel">
+    <div class="panelhead"><div><h2>Nuestro catálogo</h2><p>Cuatro argumentos sencillos para cada modelo.</p></div><span class="pill">5 modelos</span></div>
+    <div id="modelList" class="model-grid"></div>
+    <div id="modelDetail" class="hidden"></div>
+  </section>
+  <section class="panel hidden" id="demoPanel">
+    <div class="panelhead"><div><h2>Demostraciones</h2><p>Enseña fotografías guardadas para usarlas sin conexión y abre videos de YouTube cuando tengas internet.</p></div><span class="pill">Apoyo de venta</span></div>
+    <article class="card">
+      <label class="field-label" for="demoModel">Elige el dispositivo</label>
+      <select class="number-input" id="demoModel">
+        <option value="V80 Lite 5G">V80 Lite 5G</option>
+        <option value="V70 FE">V70 FE</option>
+        <option value="Y31D">Y31D</option>
+        <option value="Y11D">Y11D</option>
+        <option value="Y05">Y05</option>
+      </select>
+      <p class="note" style="margin-top:10px">Selecciona un modelo para consultar sus materiales de demostración. Aquí iremos incorporando fotografías tomadas con el equipo y videos que ayuden a mostrar sus cámaras y funciones.</p>
+    </article>
+    <div class="model-hero" style="background:linear-gradient(135deg,#103b87,#1766d7 68%,#24b8e8)">
+      <div class="eyebrow">Material para mostrar al cliente</div>
+      <h2 id="demoSelectedTitle">V80 Lite 5G</h2>
+      <p>Una forma rápida de enseñar ejemplos reales sin tener que encender el teléfono de exhibición.</p>
+    </div>
+    <div class="vsafe-grid">
+      <article class="vsafe-card">
+        <h3>📸 Fotografías</h3>
+        <div id="demoPhotos" class="note">Las fotografías de este equipo se incorporarán al paquete offline de VivoNet.</div>
+      </article>
+      <article class="vsafe-card" id="demoVideoCard">
+        <h3>🎥 Videos</h3>
+        <div id="demoVideos" class="note">Selecciona un modelo para ver sus videos disponibles.</div>
+      </article>
+      <article class="vsafe-card" id="demoMoreCard">
+        <h3>🔎 Conoce más</h3>
+        <p class="note">Consulta la página oficial del modelo para descubrir sus características y especificaciones.</p>
+        <a id="demoMoreLink" href="https://www.vivo.com/mx/products/v80-lite-5g" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;justify-content:center;background:#1456c0;color:white;text-decoration:none;font-weight:800;padding:11px 14px;border-radius:10px">Conoce más ↗</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="panel hidden" id="vsafePanel">
+    <div class="panelhead"><div><h2>Conoce nuestros beneficios</h2><p>Consulta los beneficios de cada equipo y descubre cómo explicárselos al cliente.</p></div><span class="pill">Beneficios</span></div>
+
+
+
+
+    <div class="vsafe-grid">
+      <article class="vsafe-card">
+        <h3>🔷 Familia V</h3>
+        <p class="family-models"><strong>Modelos que aplican:</strong> V80 Lite 5G y V70 FE.</p>
+        <div class="vsafe-benefit"><div class="ico">🛠️</div><div><strong>3 años de garantía</strong><p>Contra cualquier defecto de fábrica.</p></div></div>
+        <div class="vsafe-benefit"><div class="ico">📱</div><div><strong>Un cambio de pantalla</strong><p>Si la pantalla se rompe durante los primeros 6 meses.</p></div></div>
+        <div class="vsafe-benefit"><div class="ico">🔒</div><div><strong>Protección contra robo y daño material</strong><p>El robo cubierto es con violencia fuera del hogar. También puede cubrir ciertos daños materiales, como caídas accidentales y filtración de líquidos, según las condiciones del programa.</p></div></div>
+      </article>
+      <article class="vsafe-card">
+        <h3>🩵 Familia Y</h3>
+        <p class="family-models"><strong>Modelos que aplican:</strong> Y31D, Y11D y Y05.</p>
+        <div class="vsafe-benefit"><div class="ico">🛠️</div><div><strong>2 años de garantía</strong><p>Contra cualquier defecto de fábrica.</p></div></div>
+      </article>
+    </div>
+
+    <article class="vsafe-card" style="margin-top:12px">
+      <h3>📋 Antes de registrar un equipo</h3>
+      <ul class="vsafe-checklist">
+        <li>Verifica que el modelo participe en el programa vigente y que la compra sea en un punto de venta autorizado.</li>
+        <li>Entra al sitio con el botón <strong>“Registrar equipo en VSafe”</strong> y registra el equipo dentro de los primeros <strong>30 días naturales</strong> desde la fecha de compra. <strong>Solo necesitas registrar el seguro contra robo; la garantía y el beneficio de pantalla se activan por default.</strong> El seguro contra robo no aplica para ventas realizadas en un <strong>CAC Telcel</strong>.</li>
+        <li>Ten a la mano el <strong>IMEI</strong> del equipo y una foto legible del ticket o factura con la fecha de compra.</li>
+        <li>La protección de robo y daño material tiene una vigencia de <strong>12 meses</strong> desde la compra, previo registro y sujeta a condiciones; pueden aplicar deducibles.</li>
+      </ul>
+      <div class="vsafe-actions"><a class="btn btn-primary" href="https://vivovsafe.mx/" target="_blank" rel="noopener noreferrer">🌐 Registrar equipo en VSafe</a><a class="btn btn-soft" href="https://vivovsafe.mx/faqs" target="_blank" rel="noopener noreferrer">Consultar preguntas frecuentes</a><a class="btn btn-soft" href="https://vivovsafe.mx/documentacion" target="_blank" rel="noopener noreferrer">Ver condiciones y documentación</a></div>
+    </article>
+
+    <div class="vsafe-note"><strong>Importante para el promotor:</strong> la página oficial publica una lista específica de modelos participantes, que puede no incluir todos los equipos de las familias V y Y. Verifica siempre el modelo exacto y las condiciones vigentes antes de confirmar la cobertura. La cobertura de robo no incluye robo sin violencia, extravío ni robo dentro del hogar.</div>
+  </section>
+  <footer style="margin-top:4px" aria-label="Accesos directos">
+    <div class="footer-links">
+      <a class="footer-link" href="https://www.vivo.com/mx" target="_blank" rel="noopener noreferrer" aria-label="Abrir la página oficial de vivo México">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        Vivo México
+      </a>
+      <a class="footer-link" href="https://vchat.vivo.xyz:8443/vivo/down/down.html#/" target="_blank" rel="noopener noreferrer" aria-label="Abrir la página de descarga de VChat">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M5 17v3h14v-3"/></svg>
+        VChat
+      </a>
+    </div>
+  </footer>
+</main>
+<script>
+const commissionModels = [
+{family:"Serie X",name:"X300 Pro",series:true,rate:[1000,1000,1000,1000,1000,1000]},
+{family:"Serie V",name:"V50",series:true,rate:[0,300,450,600,660,720]},
+{family:"Serie V",name:"V40",series:true,rate:[0,300,450,600,660,720]},
+{family:"Serie V",name:"V30",series:true,rate:[0,300,450,600,660,720]},
+{family:"Serie V",name:"V70",series:true,rate:[0,300,450,600,660,720]},
+{family:"Serie V FE",name:"V70 FE",series:true,rate:[0,250,375,500,550,600]},
+{family:"Serie V Lite",name:"V80 Lite 5G",series:true,rate:[0,175,262,350,385,420]},
+{family:"Serie V Lite",name:"V60 Lite 5G",series:true,rate:[0,175,262,350,385,420]},
+{family:"Serie V Lite",name:"V60 Lite 4G",series:true,rate:[0,175,262,350,385,420]},
+{family:"Serie V Lite",name:"V50 Lite 5G",series:true,rate:[0,175,262,350,385,420]},
+{family:"Serie V Lite",name:"V50 Lite 4G",series:true,rate:[0,175,262,350,385,420]},
+{family:"Serie Y — gama alta",name:"Y31D (4+256 & 6+256)",series:true,rate:[0,80,120,160,175,190]},
+{family:"Serie Y — gama alta",name:"Y29",series:false,rate:[0,80,120,160,175,190]},
+{family:"Serie Y — gama alta",name:"Y28 (256G)",series:false,rate:[0,80,120,160,175,190]},
+{family:"Serie Y — gama media",name:"Y21 D (256GB)",series:false,rate:[0,40,60,80,88,96]},
+{family:"Serie Y — gama media",name:"Y19 s",series:false,rate:[0,40,60,80,88,96]},
+{family:"Serie Y — gama media",name:"Y11D",series:false,rate:[0,60,90,120,132,144]},
+{family:"Serie Y — gama de entrada",name:"Y05",series:false,rate:[0,30,45,60,66,72]},
+{family:"Serie Y — gama de entrada",name:"Y04",series:false,rate:[0,10,15,20,22,24]},
+{family:"Modelos por rango de precio",name:"Modelo 10 K+",series:false,rate:[0,200,300,400,440,480]},
+{family:"Modelos por rango de precio",name:"Modelo 5-10 K",series:false,rate:[0,50,75,100,110,120]},
+{family:"Modelos por rango de precio",name:"Modelo 5K-",series:false,rate:[0,5,7,10,11,12]}
+];
+const products = [
+
+ {name:"V80 Lite 5G",iconBg:"#f7dce8",image:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkltYWdlbiBpbHVzdHJhdGl2YSBkZWwgdml2byBWODAgTGl0ZSA1RyI+CiAgICA8ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjOWZkY2ZmIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzE1YmNhIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9InNjcmVlbiIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiMxNjIzM2IiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM0MjZkZDAiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz4KICAgIDxlbGxpcHNlIGN4PSI1MyIgY3k9IjExMyIgcng9IjI3IiByeT0iNSIgZmlsbD0iIzE2M2E2YSIgb3BhY2l0eT0iLjEyIi8+CiAgICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgtOCA1MiA2MCkiPjxyZWN0IHg9IjI1IiB5PSI4IiB3aWR0aD0iNTQiIGhlaWdodD0iMTA0IiByeD0iMTEiIGZpbGw9InVybCgjZykiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii44IiBzdHJva2Utd2lkdGg9IjEuNSIvPjxyZWN0IHg9IjI5IiB5PSIxMiIgd2lkdGg9IjQ2IiBoZWlnaHQ9Ijk2IiByeD0iOCIgZmlsbD0idXJsKCNzY3JlZW4pIi8+PHJlY3QgeD0iMzgiIHk9IjI5IiB3aWR0aD0iMjgiIGhlaWdodD0iMzQiIHJ4PSI4IiBmaWxsPSIjMjQzMjQ3Ii8+PGNpcmNsZSBjeD0iNDciIGN5PSIzOSIgcj0iNSIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjQ3IiBjeT0iNTIiIHI9IjUiIGZpbGw9IiMxMTE4MjciLz48cGF0aCBkPSJNMzEgODUgUTUyIDY2IDczIDgzIEw3MyAxMDIgUTUyIDExMSAzMSA5OVoiIGZpbGw9IiM5ZmRjZmYiIG9wYWNpdHk9Ii40NSIvPjxjaXJjbGUgY3g9IjY3IiBjeT0iMTkiIHI9IjIiIGZpbGw9IiNlOWY1ZmYiLz48L2c+CiAgICA8dGV4dCB4PSI1MiIgeT0iMTIyIiBmb250LWZhbWlseT0iQXJpYWwsc2Fucy1zZXJpZiIgZm9udC1zaXplPSI3IiBmb250LXdlaWdodD0iNzAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNDU2MTdmIj5WODAgTGl0ZSA1RzwvdGV4dD48L3N2Zz4=",tagline:"Pantalla, batería y protección para jornadas largas",source:"https://www.vivo.com/mx/products/v80-lite-5g",kpis:[
+  {icon:"🔋",title:"Batería de 10,000 mAh",value:"10,000 mAh · carga de 44 W",text:"¿Pasas mucho tiempo fuera de casa? Su batería de gran capacidad está pensada para acompañarte durante jornadas largas. Y cuando toque conectarlo, admite carga de hasta 44 W."},
+  {icon:"🖥️",title:"Pantalla OLED de 1.5K",value:"6.83 pulgadas · hasta 120 Hz",text:"Tus series, fotos y redes se ven en una pantalla amplia y nítida, con colores intensos. Además, el desplazamiento puede sentirse más fluido gracias a sus 120 Hz."},
+  {icon:"💧",title:"Protección IP68/IP69",value:"Resistencia al polvo y al agua",text:"Una lluvia fuerte o un accidente con ciertos líquidos no tienen por qué ser el fin del día. Cuenta con certificación IP68/IP69, aunque la protección no es permanente y no sustituye los cuidados normales."},
+  {icon:"📸",title:"Cámara principal de 50 MP",value:"50 MP atrás · 32 MP al frente",text:"Para guardar recuerdos, fotografiar productos o hacer videollamadas, tienes una cámara principal de 50 MP y una frontal de 32 MP. El resultado final también depende de la luz y del modo de captura."}
+ ]},
+ {name:"V70 FE",iconBg:"#e6ddff",image:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkltYWdlbiBpbHVzdHJhdGl2YSBkZWwgdml2byBWNzAgRkUiPgogICAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2Q5ZTBlYSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzI1MmIzOCIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJzY3JlZW4iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMTYyMzNiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI2ZGQwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8ZWxsaXBzZSBjeD0iNTMiIGN5PSIxMTMiIHJ4PSIyNyIgcnk9IjUiIGZpbGw9IiMxNjNhNmEiIG9wYWNpdHk9Ii4xMiIvPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoLTggNTIgNjApIj48cmVjdCB4PSIyNSIgeT0iOCIgd2lkdGg9IjU0IiBoZWlnaHQ9IjEwNCIgcng9IjExIiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIuOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cmVjdCB4PSIyOSIgeT0iMTIiIHdpZHRoPSI0NiIgaGVpZ2h0PSI5NiIgcng9IjgiIGZpbGw9InVybCgjc2NyZWVuKSIvPjxjaXJjbGUgY3g9IjQ4IiBjeT0iMzgiIHI9IjciIGZpbGw9IiMxMTE4MjciLz48Y2lyY2xlIGN4PSI0OCIgY3k9IjU3IiByPSI3IiBmaWxsPSIjMTExODI3Ii8+PGNpcmNsZSBjeD0iNjYiIGN5PSIzOCIgcj0iNCIgZmlsbD0iIzExMTgyNyIvPjxwYXRoIGQ9Ik0zMSA4NSBRNTIgNjYgNzMgODMgTDczIDEwMiBRNTIgMTExIDMxIDk5WiIgZmlsbD0iI2Q5ZTBlYSIgb3BhY2l0eT0iLjQ1Ii8+PGNpcmNsZSBjeD0iNjciIGN5PSIxOSIgcj0iMiIgZmlsbD0iI2U5ZjVmZiIvPjwvZz4KICAgIDx0ZXh0IHg9IjUyIiB5PSIxMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSI3MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM0NTYxN2YiPlY3MCBGRTwvdGV4dD48L3N2Zz4=",tagline:"Fotografía de alta resolución y carga rápida",source:"https://www.vivo.com/mx/products/param/v70-fe",kpis:[
+  {icon:"📸",title:"Cámara de 200 MP con OIS",value:"200 MP · estabilización óptica",text:"¿Quieres acercarte a los detalles de una foto? Su cámara principal de 200 MP permite capturar imágenes de alta resolución, y la estabilización óptica ayuda a reducir el efecto de pequeños movimientos."},
+  {icon:"🔋",title:"Batería de 7,000 mAh",value:"Gran capacidad para el día",text:"Está pensado para acompañarte entre mensajes, videos, mapas y otras actividades. La duración real cambia según el brillo, la señal, las aplicaciones y la forma en que lo uses."},
+  {icon:"⚡",title:"FlashCharge de 90 W",value:"Carga de hasta 90 W",text:"Cuando necesitas recuperar batería, la carga de hasta 90 W puede ayudarte a hacerlo más rápido que un cargador de menor potencia. La velocidad cambia según la temperatura, el uso y el cargador compatible."},
+  {icon:"🖥️",title:"Pantalla AMOLED de 120 Hz",value:"6.83 pulgadas · hasta 120 Hz",text:"Disfruta una pantalla grande, colores intensos y movimientos más suaves al desplazarte por tus aplicaciones. También alcanza un brillo alto para facilitar la lectura en lugares iluminados."}
+ ]},
+ {name:"Y31D",iconBg:"#e1e5e8",image:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkltYWdlbiBpbHVzdHJhdGl2YSBkZWwgdml2byBZMzFkIj4KICAgIDxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNiNmU0ZTciLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMyNzZjNzciLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ic2NyZWVuIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzE2MjMzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNmRkMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgogICAgPGVsbGlwc2UgY3g9IjUzIiBjeT0iMTEzIiByeD0iMjciIHJ5PSI1IiBmaWxsPSIjMTYzYTZhIiBvcGFjaXR5PSIuMTIiLz4KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKC04IDUyIDYwKSI+PHJlY3QgeD0iMjUiIHk9IjgiIHdpZHRoPSI1NCIgaGVpZ2h0PSIxMDQiIHJ4PSIxMSIgZmlsbD0idXJsKCNnKSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utb3BhY2l0eT0iLjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHJlY3QgeD0iMjkiIHk9IjEyIiB3aWR0aD0iNDYiIGhlaWdodD0iOTYiIHJ4PSI4IiBmaWxsPSJ1cmwoI3NjcmVlbikiLz48cmVjdCB4PSIzNyIgeT0iMjciIHdpZHRoPSIzMyIgaGVpZ2h0PSIzOSIgcng9IjEwIiBmaWxsPSIjMTcyYzNiIi8+PGNpcmNsZSBjeD0iNDgiIGN5PSIzOSIgcj0iNiIgZmlsbD0iIzExMTgyNyIvPjxjaXJjbGUgY3g9IjQ4IiBjeT0iNTUiIHI9IjYiIGZpbGw9IiMxMTE4MjciLz48Y2lyY2xlIGN4PSI2MyIgY3k9IjM5IiByPSI0IiBmaWxsPSIjMTExODI3Ii8+PHBhdGggZD0iTTMxIDg1IFE1MiA2NiA3MyA4MyBMNzMgMTAyIFE1MiAxMTEgMzEgOTlaIiBmaWxsPSIjYjZlNGU3IiBvcGFjaXR5PSIuNDUiLz48Y2lyY2xlIGN4PSI2NyIgY3k9IjE5IiByPSIyIiBmaWxsPSIjZTlmNWZmIi8+PC9nPgogICAgPHRleHQgeD0iNTIiIHk9IjEyMiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNyIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzQ1NjE3ZiI+WTMxZDwvdGV4dD48L3N2Zz4=",tagline:"Batería grande, sonido potente y protección",source:"https://www.vivo.com/mx/products/Y31D",kpis:[
+  {icon:"🔋",title:"Batería de 7,200 mAh",value:"7,200 mAh · FlashCharge de 44 W",text:"Una batería de gran capacidad para acompañarte en días largos. Además, admite carga de hasta 44 W para que puedas recuperar batería más rápido con un cargador compatible."},
+  {icon:"💧",title:"Protección IP68/IP69",value:"Resistencia al polvo y al agua",text:"Está diseñado para soportar determinadas condiciones de exposición al polvo y al agua según las pruebas IP68/IP69. La protección tiene límites: evita tratarlo como indestructible o cargarlo mojado."},
+  {icon:"🖥️",title:"Pantalla de 120 Hz",value:"6.75 pulgadas · hasta 1,250 nits",text:"La pantalla grande facilita ver videos y leer mensajes; los 120 Hz hacen que el desplazamiento se sienta más fluido. El brillo de hasta 1,250 nits ayuda en exteriores iluminados."},
+  {icon:"🔊",title:"Altavoces con volumen de hasta 400 %",value:"Modo de volumen alto",text:"Si te cuesta escuchar el tono de llamada o un video en un lugar ruidoso, este modo puede ayudar. El 400 % es una cifra publicitada frente al nivel de referencia de vivo, no una medida universal de volumen."}
+ ]},
+ {name:"Y11D",iconBg:"#dce9f8",image:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkltYWdlbiBpbHVzdHJhdGl2YSBkZWwgdml2byBZMTFkIj4KICAgIDxkZWZzPjxsaW5lYXJHcmFkaWVudCBpZD0iZyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNlZGY0ZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiOGM3ZGMiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ic2NyZWVuIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzE2MjMzYiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzQyNmRkMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPgogICAgPGVsbGlwc2UgY3g9IjUzIiBjeT0iMTEzIiByeD0iMjciIHJ5PSI1IiBmaWxsPSIjMTYzYTZhIiBvcGFjaXR5PSIuMTIiLz4KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKC04IDUyIDYwKSI+PHJlY3QgeD0iMjUiIHk9IjgiIHdpZHRoPSI1NCIgaGVpZ2h0PSIxMDQiIHJ4PSIxMSIgZmlsbD0idXJsKCNnKSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utb3BhY2l0eT0iLjgiIHN0cm9rZS13aWR0aD0iMS41Ii8+PHJlY3QgeD0iMjkiIHk9IjEyIiB3aWR0aD0iNDYiIGhlaWdodD0iOTYiIHJ4PSI4IiBmaWxsPSJ1cmwoI3NjcmVlbikiLz48cmVjdCB4PSIzOCIgeT0iMjkiIHdpZHRoPSIyOCIgaGVpZ2h0PSIzNCIgcng9IjgiIGZpbGw9IiMyNDMyNDciLz48Y2lyY2xlIGN4PSI0NyIgY3k9IjM5IiByPSI1IiBmaWxsPSIjMTExODI3Ii8+PGNpcmNsZSBjeD0iNDciIGN5PSI1MiIgcj0iNSIgZmlsbD0iIzExMTgyNyIvPjxwYXRoIGQ9Ik0zMSA4NSBRNTIgNjYgNzMgODMgTDczIDEwMiBRNTIgMTExIDMxIDk5WiIgZmlsbD0iI2VkZjRmZiIgb3BhY2l0eT0iLjQ1Ii8+PGNpcmNsZSBjeD0iNjciIGN5PSIxOSIgcj0iMiIgZmlsbD0iI2U5ZjVmZiIvPjwvZz4KICAgIDx0ZXh0IHg9IjUyIiB5PSIxMjIiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjciIGZvbnQtd2VpZ2h0PSI3MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM0NTYxN2YiPlkxMWQ8L3RleHQ+PC9zdmc+",tagline:"Batería duradera y herramientas prácticas",source:"https://www.vivo.com/mx/products/Y11D",kpis:[
+  {icon:"🔋",title:"Batería de 6,500 mAh",value:"6,500 mAh · carga de 44 W",text:"Está pensado para pasar más tiempo usando tus aplicaciones y menos tiempo pendiente del porcentaje de batería. La autonomía real depende de la señal, el brillo y el tipo de uso."},
+  {icon:"⚡",title:"FlashCharge de 44 W",value:"Carga de hasta 44 W",text:"Cuando necesites recargarlo, admite carga rápida de hasta 44 W con equipo compatible. El tiempo de carga cambia según las condiciones y el cargador utilizado."},
+  {icon:"🛡️",title:"Protección IP65 y pruebas de caída",value:"Protección contra polvo y chorros de agua",text:"Está preparado para ciertos imprevistos cotidianos y cuenta con pruebas de resistencia anunciadas por vivo. Aun así, una caída puede dañarlo y la protección no elimina la necesidad de cuidarlo."},
+  {icon:"🖥️",title:"Pantalla de 120 Hz y 1,200 nits",value:"6.74 pulgadas · LCD HD+",text:"Una pantalla amplia para mensajes, videos y redes, con desplazamiento fluido y brillo de hasta 1,200 nits para ayudar a consultar el contenido cuando hay mucha luz."}
+ ]},
+ {name:"Y05",iconBg:"#d8f0f5",image:"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDQgMTI0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkltYWdlbiBpbHVzdHJhdGl2YSBkZWwgdml2byBZMDUiPgogICAgPGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2RjZThmNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjOGRhNiIvPjwvbGluZWFyR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJzY3JlZW4iIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjMTYyMzNiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNDI2ZGQwIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+CiAgICA8ZWxsaXBzZSBjeD0iNTMiIGN5PSIxMTMiIHJ4PSIyNyIgcnk9IjUiIGZpbGw9IiMxNjNhNmEiIG9wYWNpdHk9Ii4xMiIvPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoLTggNTIgNjApIj48cmVjdCB4PSIyNSIgeT0iOCIgd2lkdGg9IjU0IiBoZWlnaHQ9IjEwNCIgcng9IjExIiBmaWxsPSJ1cmwoI2cpIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIuOCIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48cmVjdCB4PSIyOSIgeT0iMTIiIHdpZHRoPSI0NiIgaGVpZ2h0PSI5NiIgcng9IjgiIGZpbGw9InVybCgjc2NyZWVuKSIvPjxyZWN0IHg9IjM4IiB5PSIyOSIgd2lkdGg9IjI3IiBoZWlnaHQ9IjMzIiByeD0iOCIgZmlsbD0iIzI2MzY0YiIvPjxjaXJjbGUgY3g9IjQ3IiBjeT0iMzkiIHI9IjUiIGZpbGw9IiMxMTE4MjciLz48Y2lyY2xlIGN4PSI0NyIgY3k9IjUyIiByPSI1IiBmaWxsPSIjMTExODI3Ii8+PHBhdGggZD0iTTMxIDg1IFE1MiA2NiA3MyA4MyBMNzMgMTAyIFE1MiAxMTEgMzEgOTlaIiBmaWxsPSIjZGNlOGY2IiBvcGFjaXR5PSIuNDUiLz48Y2lyY2xlIGN4PSI2NyIgY3k9IjE5IiByPSIyIiBmaWxsPSIjZTlmNWZmIi8+PC9nPgogICAgPHRleHQgeD0iNTIiIHk9IjEyMiIgZm9udC1mYW1pbHk9IkFyaWFsLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNyIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzQ1NjE3ZiI+WTA1PC90ZXh0Pjwvc3ZnPg==",tagline:"Lo esencial para acompañarte todos los días",source:"https://www.vivo.com/mx/products/y05",kpis:[
+  {icon:"🔋",title:"Batería de 6,500 mAh",value:"6,500 mAh · carga de 15 W",text:"Si usas el teléfono para comunicarte, escuchar música y revisar redes, su batería de gran capacidad está pensada para acompañarte durante tus actividades diarias."},
+  {icon:"🌞",title:"Pantalla de 120 Hz y 1,200 nits",value:"6.74 pulgadas · LCD HD+",text:"Deslízate por tus redes con una sensación más fluida y consulta tus mensajes en una pantalla amplia. Su brillo de hasta 1,200 nits ayuda a ver el contenido en ambientes iluminados."},
+  {icon:"🛡️",title:"Protección IP65",value:"Protección contra polvo y chorros de agua",text:"Las salpicaduras y el polvo del día a día son más fáciles de manejar gracias a su clasificación IP65. No significa que puedas sumergirlo ni exponerlo a cualquier líquido."},
+  {icon:"🔦",title:"Linterna de alto brillo",value:"Hasta 5 veces más brillo · 4 niveles",text:"¿Buscas algo en una mochila o necesitas iluminar el camino? Su linterna ofrece varios niveles de brillo y vivo anuncia hasta cinco veces más luz frente al modo de referencia indicado por la marca."}
+ ]}
+];
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN',maximumFractionDigits:0}).format(n);
+let quantities={};
+try{const raw=localStorage.getItem('vivoMonthlyQuantitiesV1');quantities=raw?JSON.parse(raw):{};}catch(e){quantities={};}
+commissionModels.forEach((m,i)=>{const n=Number(quantities[i]);quantities[i]=Number.isInteger(n)&&n>=0?n:0;});
+function totalCount(){return commissionModels.reduce((n,m,i)=>n+quantities[i],0)}
+function seriesCount(){return commissionModels.reduce((n,m,i)=>n+(m.series?quantities[i]:0),0)}
+function tierIndex(total,series){let t=0;if(total>=20&&total<=29)t=Math.max(t,1);if(total>=30&&total<=39)t=Math.max(t,2);if(total>=40&&total<=59)t=Math.max(t,3);if(total>=60&&total<=79)t=Math.max(t,4);if(total>=80)t=Math.max(t,5);if(series>=6&&series<=8)t=Math.max(t,1);if(series>=9&&series<=11)t=Math.max(t,2);if(series>=12)t=Math.max(t,3);return t}
+function bonusVol(n){return n>=100?2500:n>=80?2000:n>=60?1500:n>=50?1000:n>=40?500:0}
+function bonusSeries(n){return n>=30?2500:n>=24?2000:n>=18?1500:n>=15?1000:n>=12?500:0}
+function saveQuantities(){try{localStorage.setItem('vivoMonthlyQuantitiesV1',JSON.stringify(quantities));}catch(e){$('calcFeedback').textContent='No se pudo guardar en este navegador; el cálculo seguirá disponible mientras esta página esté abierta.'}}
+function renderCalc(){
+ const host=$('commissionModels');host.replaceChildren();
+ const groups=[];commissionModels.forEach((m,i)=>{let g=groups.find(x=>x.family===m.family);if(!g){g={family:m.family,items:[]};groups.push(g)}g.items.push({m,i})});
+ groups.forEach(g=>{
+  const d=document.createElement('details');d.open=false;const s=document.createElement('summary');s.textContent=g.family;const c=document.createElement('span');c.style.fontSize='11px';c.style.fontWeight='600';c.style.color='#64748b';c.textContent=g.items.reduce((sum,x)=>sum+quantities[x.i],0)+' vendidas';s.appendChild(c);d.appendChild(s);
+  g.items.forEach(({m,i})=>{const row=document.createElement('div');row.className='calc-row';const label=document.createElement('div');label.textContent=m.name;const small=document.createElement('small');small.textContent=m.series?'Cuenta para series V/X/Y31D':'Modelo estándar';label.appendChild(small);const input=document.createElement('input');input.className='qty';input.type='number';input.min='0';input.step='1';input.inputMode='numeric';input.placeholder='';input.value=quantities[i]||'';input.setAttribute('aria-label','Cantidad vendida de '+m.name);input.addEventListener('input',()=>{const n=Math.max(0,Math.floor(Number(input.value)||0));quantities[i]=n;saveQuantities();renderSummary();c.textContent=g.items.reduce((sum,x)=>sum+quantities[x.i],0)+' vendidas'});row.append(label,input);d.appendChild(row)});
+  host.appendChild(d);
+ });
+}
+function renderSummary(){
+ const total=totalCount(),series=seriesCount(),tier=tierIndex(total,series);let commission=0;
+ if(total>=20)commissionModels.forEach((m,i)=>commission+=m.rate[tier]*quantities[i]);
+ const bv=bonusVol(total),bs=bonusSeries(series),grand=commission+bv+bs;
+ $('totalUnits').textContent=total;$('seriesUnits').textContent=series;$('tierLabel').textContent=['0%','50%','75%','100%','110%','120%'][tier];
+ $('grandTop').textContent=money(grand);$('comm').textContent=money(commission);$('bonusV').textContent=money(bv);$('bonusS').textContent=money(bs);$('grand').textContent=money(grand);
+ $('threshold').textContent=total<20?'Aún no alcanzas el mínimo de 20 ventas para cobrar comisiones. Los bonos se muestran según los rangos incluidos.':'Nivel aplicado: '+['0%','50%','75%','100%','110%','120%'][tier]+'.';
+}
+$('clearQuantities').addEventListener('click',()=>{if(confirm('¿Borrar todas las cantidades registradas? Esta acción no se puede deshacer.')){commissionModels.forEach((m,i)=>quantities[i]=0);saveQuantities();renderCalc();renderSummary();$('calcFeedback').textContent='Todas las cantidades se borraron.'}});
+function switchPanel(which){
+ const panelIds={calc:'calcPanel',kpi:'kpiPanel',demo:'demoPanel',vsafe:'vsafePanel'};
+ const navIds={calc:'navCalc',kpi:'navKpi',demo:'navDemo',vsafe:'navVsafe'};
+ const selectedPanel=panelIds[which];
+ const shouldClose=selectedPanel && !$(selectedPanel).classList.contains('hidden');
+ const active=shouldClose?null:which;
+ Object.entries(panelIds).forEach(([key,id])=>$(id).classList.toggle('hidden',key!==active));
+ Object.entries(navIds).forEach(([key,id])=>$(id).classList.toggle('active',key===active));
+ $('sectionHint').classList.toggle('hidden',active!==null);
+ if(active!=='kpi'){$('modelDetail').classList.add('hidden');$('modelList').classList.remove('hidden')}
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+$('navCalc').addEventListener('click',()=>switchPanel('calc'));$('navKpi').addEventListener('click',()=>switchPanel('kpi'));$('navDemo').addEventListener('click',()=>switchPanel('demo'));$('navVsafe').addEventListener('click',()=>switchPanel('vsafe'));
+const demoProductPages={
+ 'V80 Lite 5G':'https://www.vivo.com/mx/products/v80-lite-5g',
+ 'V70 FE':'https://www.vivo.com/mx/products/param/v70-fe',
+ 'Y31D':'https://www.vivo.com/mx/products/Y31D',
+ 'Y11D':'https://www.vivo.com/mx/products/Y11D',
+ 'Y05':'https://www.vivo.com/mx/products/y05'
+};
+const demoVideoLinks={
+ 'V80 Lite 5G':[
+  {title:'Batería para acompañarte durante el día',description:'Muestra el enfoque del equipo en batería y ayuda a iniciar una conversación sobre la autonomía para el uso diario.',url:'https://youtu.be/ZIzU9GBz_Xs'},
+  {title:'Diseño del V80 Lite 5G',description:'Ideal para presentar la apariencia del equipo y destacar su diseño antes de que el cliente lo pruebe en persona.',url:'https://youtu.be/lmGuZ3i70EU'}
+ ],
+ 'V70 FE':[
+  {title:'Descubre el diseño del V70 FE',description:'Úsalo para mostrar la apariencia del equipo y conversar con el cliente sobre su estilo y acabado.',url:'https://youtu.be/byEeq6_uJb0'},
+  {title:'Conoce la cámara del V70 FE',description:'Una demostración para introducir las capacidades de cámara y ayudar al cliente a explorar la experiencia fotográfica.',url:'https://youtu.be/mR0Lux5c9Dg'}
+ ],
+ 'Y31D':[
+  {title:'Diseño del Y31D',description:'Muestra el diseño del dispositivo y permite iniciar la conversación sobre su apariencia.',url:'https://youtu.be/zsaqRq3lJlw'},
+  {title:'Batería del Y31D',description:'Ideal para hablar sobre la batería y el uso diario del equipo.',url:'https://youtu.be/5nC2-TTM5WA'}
+ ]
+};
+function renderDemoMaterials(){
+ const model=$('demoModel').value;
+ $('demoSelectedTitle').textContent=model;
+ const moreLink=$('demoMoreLink');
+ moreLink.href=demoProductPages[model]||'https://www.vivo.com/mx/';
+ moreLink.setAttribute('aria-label','Conoce más sobre '+model+' en la página oficial de vivo México');
+ const videos=$('demoVideos');videos.replaceChildren();
+ const items=demoVideoLinks[model]||[];
+ $('demoVideoCard').classList.toggle('hidden',items.length===0);
+ if(!items.length)return;
+ items.forEach(item=>{
+  const card=document.createElement('div');card.style.cssText='border:1px solid #dce8f7;border-radius:14px;padding:12px;margin-top:8px;background:#fff';
+  const title=document.createElement('strong');title.textContent=item.title;title.style.display='block';title.style.marginBottom='6px';
+  const description=document.createElement('p');description.className='note';description.textContent=item.description;description.style.margin='0 0 10px';
+  const link=document.createElement('a');link.href=item.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='▶ Ver en YouTube';link.setAttribute('aria-label','Abrir '+item.title+' en YouTube');link.style.cssText='display:inline-flex;align-items:center;justify-content:center;background:#1456c0;color:white;text-decoration:none;font-weight:800;padding:11px 14px;border-radius:10px';
+  const note=document.createElement('p');note.className='note';note.textContent='Requiere conexión a internet.';note.style.marginBottom='0';
+  card.append(title,description,link,note);videos.appendChild(card);
+ });
+}
+// Easter egg: toca cinco veces el título para desbloquear el Modo Máster.
+let masterTaps=0,masterTapTimer;
+function unlockMaster(){
+ const overlay=document.createElement('div');overlay.className='master-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-labelledby','masterTitle');
+ overlay.innerHTML='<div class="master-box"><div class="master-trophy" aria-hidden="true">🏆</div><div class="master-kicker">SECRETO DESBLOQUEADO</div><h2 id="masterTitle">¡MÁSTER!</h2><p>Has desbloqueado el <strong>Modo Máster</strong>.<br>Solo los verdaderos cracks de VivoNet encuentran este secreto.</p><button class="master-close" type="button">¡Lo logré!</button></div>';
+ document.body.appendChild(overlay);const close=()=>overlay.remove();overlay.querySelector('button').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close()});const onKey=e=>{if(e.key==='Escape'){close();document.removeEventListener('keydown',onKey)}};document.addEventListener('keydown',onKey);overlay.querySelector('button').focus();
+}
+function masterTap(){masterTaps++;clearTimeout(masterTapTimer);if(masterTaps>=5){masterTaps=0;unlockMaster()}else{masterTapTimer=setTimeout(()=>{masterTaps=0},1800)}}
+$('welcomeTitle').addEventListener('click',masterTap);$('welcomeTitle').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();masterTap()}});
+$('demoModel').addEventListener('change',renderDemoMaterials);
+renderDemoMaterials();
+function renderProductList(){
+ const host=$('modelList');host.replaceChildren();
+ products.forEach((p,i)=>{const b=document.createElement('button');b.type='button';b.className='model-card';const icon=document.createElement('div');icon.className='phone-badge';icon.style.background=p.iconBg||'#e7f1ff';icon.textContent='📱';icon.setAttribute('aria-label','Teléfono '+p.name);const content=document.createElement('div');const name=document.createElement('strong');name.textContent=p.name;const sub=document.createElement('small');sub.textContent=p.tagline;content.append(name,sub);const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='›';b.append(icon,content,arrow);b.addEventListener('click',()=>showProduct(i));host.appendChild(b)});
+}
+function showProduct(i){
+ const p=products[i],detail=$('modelDetail');detail.replaceChildren();detail.classList.remove('hidden');$('modelList').classList.add('hidden');
+ const back=document.createElement('button');back.className='back';back.textContent='‹ Todos los modelos';back.addEventListener('click',()=>{detail.classList.add('hidden');$('modelList').classList.remove('hidden')});detail.appendChild(back);
+ const hero=document.createElement('div');hero.className='model-hero';const eyebrow=document.createElement('div');eyebrow.className='eyebrow';eyebrow.textContent='Los 4 KPI principales';const h=document.createElement('h2');h.textContent=p.name;const para=document.createElement('p');para.textContent=p.tagline;hero.append(eyebrow,h,para);detail.appendChild(hero);
+ const list=document.createElement('div');list.className='kpi-list';
+ p.kpis.forEach(k=>{const card=document.createElement('article');card.className='kpi';const ic=document.createElement('div');ic.className='kpi-icon';ic.textContent=k.icon;const body=document.createElement('div');const title=document.createElement('h3');title.textContent=k.title;const val=document.createElement('div');val.className='value';val.textContent=k.value;const text=document.createElement('p');text.textContent=k.text;body.append(title,val,text);card.append(ic,body);list.appendChild(card)});
+ detail.appendChild(list);const source=document.createElement('p');source.className='source-note';source.innerHTML='Especificaciones basadas en la página oficial de vivo México. <a href="'+p.source+'" target="_blank" rel="noopener noreferrer" style="color:#1456c0;font-weight:800">Consultar ficha oficial ↗</a><br>La protección contra agua y polvo tiene límites y puede disminuir con el uso. Los resultados reales varían según las condiciones.';detail.appendChild(source);detail.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+const curiosities=[
+ {title:'Retratos con estilo de estudio',fact:'En modelos compatibles, ZEISS ofrece\nestilos de retrato inspirados en lentes\nclásicos para dar personalidad a cada foto.',tip:'Pídele al cliente un retrato de prueba.\nComparen estilos y elijan su favorito.'},
+ {title:'La suavidad también se nota',fact:'Una pantalla de 120 Hz puede actualizar\nla imagen hasta 120 veces por segundo\ny hacer más fluido el desplazamiento.',tip:'Abre una red social y desliza la pantalla.\nInvita al cliente a probarlo.'},
+ {title:'La noche también puede ser fotogénica',fact:'La Luz de Aura, en modelos que la incluyen,\nayuda a iluminar retratos en ambientes\noscuros para destacar el rostro.',tip:'Toma un retrato en poca luz con el equipo.\nComparen juntos el resultado.'},
+ {title:'Una pausa, más batería',fact:'FlashCharge acelera la carga en modelos\ncompatibles; la potencia y el tiempo\ndependen del teléfono y el cargador.',tip:'Pregunta cuándo suele cargar su teléfono.\nMuéstrale la potencia del modelo compatible.'},
+ {title:'Negros que apagan los píxeles',fact:'En pantallas AMOLED, los píxeles pueden\napagarse individualmente para mostrar\nnegros profundos y mayor contraste.',tip:'Muestra una escena nocturna en pantalla.\nDeja que el cliente note el contraste.'},
+ {title:'Una foto, muchas posibilidades',fact:'Los modos de cámara adaptan la toma\na retratos, paisajes o escenas nocturnas,\nsegún las funciones de cada modelo.',tip:'Pregunta qué suele fotografiar.\nPrueben juntos el modo adecuado.'},
+ {title:'Más que megapíxeles',fact:'La calidad no depende solo de los megapíxeles:\ntambién influyen la luz, el enfoque,\nel sensor y el procesamiento.',tip:'Tomen una foto con muchos detalles.\nAcérquenla y revisen el resultado.'},
+ {title:'Espacio para todo lo que importa',fact:'Fotos, videos y aplicaciones ocupan\nalmacenamiento de forma distinta; la capacidad\nideal depende de los hábitos del cliente.',tip:'Pregunta si graba videos o instala juegos.\nRecomienda la capacidad adecuada.'},
+ {title:'El diseño también vende',fact:'Los acabados y colores hacen que el equipo\nse sienta personal: la primera impresión\ntambién forma parte de la experiencia.',tip:'Pon el equipo en sus manos y que lo explore.\nPregunta qué acabado va con su estilo.'},
+ {title:'La mejor demo es personalizada',fact:'Una demostración conectada con los intereses\ndel cliente puede ser más memorable\nque una lista larga de especificaciones.',tip:'Pregunta qué hace más con su teléfono.\nDemuestra una función relacionada.'},
+ {title:'Edición creativa al alcance',fact:'Algunos modelos incluyen herramientas de IA\npara modificar o mejorar imágenes\ndirectamente desde el teléfono.',tip:'Abre una foto y muestra una herramienta real.\nDeja que el cliente pruebe el cambio.'},
+ {title:'El sonido también se demuestra',fact:'En modelos con altavoces estéreo, el audio\npuede sentirse más amplio al ver videos\no jugar, según el contenido.',tip:'Reproduce un video corto de muestra.\nPregunta cómo disfruta el audio.'},
+ {title:'RAM extendida para la rutina',fact:'Algunos equipos usan parte del almacenamiento\ncomo RAM extendida para apoyar la multitarea;\nno sustituye a la RAM física.',tip:'Pregunta cuántas apps usa a la vez.\nExplica la función del modelo sin confundirla.'},
+ {title:'La capacidad ideal depende de ti',fact:'Quien graba videos o instala juegos puede\nnecesitar más espacio que quien usa\naplicaciones básicas y pocas fotos.',tip:'Pregunta qué guarda en su teléfono.\nCompara las capacidades disponibles.'},
+ {title:'La huella agiliza el acceso',fact:'Según el modelo, el sensor de huella\npuede estar en pantalla o en otro lugar\npara facilitar el desbloqueo.',tip:'Si el equipo lo permite, configura una huella.\nInvita al cliente a probar el desbloqueo.'},
+ {title:'Conectarse a 5G depende de varios factores',fact:'Para usar 5G se necesita un teléfono\ncompatible, cobertura disponible y un plan\nque incluya el servicio del operador.',tip:'Pregunta dónde usa más sus datos móviles.\nVerifiquen cobertura y plan antes de prometer.'},
+ {title:'Una batería se vive de forma distinta',fact:'La duración cambia con el brillo, la señal,\nlas aplicaciones y los hábitos, no solo\ncon la capacidad indicada en mAh.',tip:'Pregunta cómo usa el teléfono durante el día.\nRelaciona la batería con su rutina real.'},
+ {title:'La estabilización ayuda al grabar',fact:'Algunos modelos estabilizan fotos o videos\ncon sistemas ópticos o electrónicos;\ndepende de la cámara y el modo.',tip:'Graba un clip corto con el equipo de muestra.\nRevisen el resultado y confirma la función.'},
+ {title:'Protección con límites claros',fact:'La clasificación IP indica pruebas concretas\ncontra polvo o agua; no significa\nque el teléfono sea indestructible.',tip:'Consulta la clasificación exacta del modelo.\nExplica sus límites sin probarlo con agua.'},
+ {title:'El mejor teléfono es el que encaja',fact:'La ficha técnica ayuda a comparar, pero\nla elección también depende del presupuesto\ny las prioridades de cada persona.',tip:'Pregunta qué valora, cuánto quiere invertir\ny qué desea mejorar de su equipo actual.'}
+];
+// Cada sesión recorre las curiosidades en un orden aleatorio, sin repetir hasta mostrarlas todas.
+function shuffleCuriosities(){
+ const order=curiosities.map((_,i)=>i);
+ for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+ return order;
+}
+let curioOrder=shuffleCuriosities();
+let curioPosition=0;
+let lastCuriosityIndex=-1;
+function renderCuriosity(){
+ const curioIndex=curioOrder[curioPosition];
+ const c=curiosities[curioIndex];
+ $('curioFact').textContent=c.fact;
+ $('curioTip').textContent=c.tip;
+}
+function nextCuriosity(){
+ lastCuriosityIndex=curioOrder[curioPosition];
+ curioPosition++;
+ if(curioPosition>=curioOrder.length){
+  curioOrder=shuffleCuriosities();
+  // Evita que la primera curiosidad del nuevo ciclo sea igual a la última anterior.
+  if(curioOrder.length>1 && curioOrder[0]===lastCuriosityIndex){[curioOrder[0],curioOrder[1]]=[curioOrder[1],curioOrder[0]];}
+  curioPosition=0;
+ }
+ renderCuriosity();
+}
+const curioCard=$('curioCard');
+$('nextCuriosityButton').addEventListener('click',event=>{
+ event.stopPropagation();
+ nextCuriosity();
+});
+renderCuriosity();
+
+renderCalc();renderSummary();renderProductList();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
+</script>
+
+<style id="vivonet-v68-all-text-centered">
+/* V68: experimento visual; centra todos los textos sin cambiar los espacios de 11 px ni la estructura. */
+html body, html body * { text-align: center !important; }
+html body input, html body textarea, html body select, html body button { text-align: center !important; }
+</style>
+
+<style id="vivonet-v69-centered-icons-announcement">
+/* V69: centrar iconos y encabezado de anuncios; quitar iconos de los dos detalles promocionales. */
+.navcard { text-align: center !important; }
+.navicon { margin-left: auto !important; margin-right: auto !important; }
+.promo-head { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; gap: 5px !important; }
+.promo-head-icon { display: none !important; }
+.promo-details { text-align: center !important; }
+.promo-detail { display: block !important; text-align: center !important; }
+.promo-detail svg { display: none !important; }
+.promo-detail span { display: block !important; text-align: center !important; width: 100%; }
+</style>
+
+</body>
+</html>
