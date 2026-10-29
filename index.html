@@ -371,7 +371,6 @@ footer[aria-label="Accesos directos"] { margin-top: 28px !important; }
       <div class="curio-label">¡ÚSALO EN TU VENTA!</div>
       <p id="curioTip" class="curio-tip"></p>
     </div>
-    <div class="curio-next-wrap"><button class="curio-next-btn" id="nextCuriosityButton" type="button" aria-label="Siguiente curiosidad" title="Siguiente curiosidad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15M13 5l7 7-7 7"/></svg></button></div>
   </article>
 
 
@@ -709,9 +708,12 @@ function nextCuriosity(){
  renderCuriosity();
 }
 const curioCard=$('curioCard');
-$('nextCuriosityButton').addEventListener('click',event=>{
- event.stopPropagation();
- nextCuriosity();
+curioCard.setAttribute('role','button');
+curioCard.setAttribute('tabindex','0');
+curioCard.setAttribute('aria-label','Toca para ver otra curiosidad y consejo de venta');
+curioCard.addEventListener('click',()=>nextCuriosity());
+curioCard.addEventListener('keydown',event=>{
+ if(event.key==='Enter' || event.key===' '){event.preventDefault();nextCuriosity();}
 });
 renderCuriosity();
 
@@ -1000,6 +1002,23 @@ html body input, html body textarea, html body select, html body button { text-a
   border: 1.25px solid #7F9482 !important;
   box-shadow: none !important;
 }
+</style>
+
+
+<style id="vivonet-v107-spacing-curiosity-click">
+/* v107: espacios ajustados según lo solicitado */
+:root { --section-gap: 12px !important; --layout-gap: 12px !important; }
+main, .main-content, .content, .sections, .section-grid, .cards-grid, .button-row, .bottom-buttons, .app-grid { gap: 12px !important; row-gap: 12px !important; column-gap: 12px !important; }
+header.topbar { padding-bottom: 12px !important; }
+.promo-announcement { margin-bottom: 12px !important; }
+.curio-card.home-curio { margin-bottom: 12px !important; }
+.navgrid { gap: 12px !important; }
+footer[aria-label="Accesos directos"] { margin-top: 26px !important; }
+@media (max-width: 559px) { header.topbar { padding-bottom: 12px !important; } }
+/* La tarjeta completa es el control; no se muestra la flecha rosa. */
+.home-curio { cursor: pointer; }
+.home-curio:focus-visible { outline: 2px solid #E6007E; outline-offset: 3px; }
+.curio-next-wrap, .curio-next-btn { display: none !important; }
 </style>
 
 </body>

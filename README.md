@@ -29,3 +29,9 @@ Actualización: VivoNet v44 incluye 20 curiosidades con recomendaciones práctic
 
 ## Vigo integrado (v76)
 Se agregó la tarjeta **Vigo** a las herramientas principales. Abre `vigo.html` y el botón «Regresar a VivoNet» vuelve a la pantalla principal. La página de Vigo se incluye en la caché del service worker.
+
+
+## VivoNet v107
+- Separación entre secciones ajustada a 12 px.
+- Separación antes de los botones inferiores ajustada a 26 px.
+- Eliminada la flecha rosa; al tocar la tarjeta de curiosidad cambia el dato y el consejo.
