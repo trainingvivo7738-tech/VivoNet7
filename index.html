@@ -1014,13 +1014,13 @@ header.topbar { padding-bottom: 9px !important; }
 .curio-card.home-curio { margin-bottom: 9px !important; }
 .navgrid { gap: 9px !important; }
 footer[aria-label="Accesos directos"] { margin-top: 14px !important; }
-/* Vigo conserva su color y contenido, con menos altura y relleno. */
-.vigo-feature-card { min-height: 62px !important; margin: 0 0 9px !important; padding: 8px 10px !important; }
-.vigo-feature-copy { gap: 2px !important; }
-.vigo-feature-copy strong { line-height: 1.15 !important; }
-.vigo-feature-copy small { line-height: 1.25 !important; }
+/* v119: compactar de verdad la tarjeta Vigo; conservar texto, color y alineación. */
+.vigo-feature-card { min-height: 50px !important; height: auto !important; margin: 0 0 9px !important; padding: 5px 10px !important; }
+.vigo-feature-copy { gap: 1px !important; }
+.vigo-feature-copy strong { line-height: 1.1 !important; }
+.vigo-feature-copy small { line-height: 1.15 !important; }
 @media (max-width: 559px) { header.topbar { padding-bottom: 9px !important; } }
-@media (max-width: 420px) { .vigo-feature-card { min-height: 62px !important; margin-bottom: 9px !important; padding: 8px 10px !important; } }
+@media (max-width: 420px) { .vigo-feature-card { min-height: 50px !important; height: auto !important; margin-bottom: 9px !important; padding: 5px 10px !important; } }
 /* La tarjeta completa es el control; no se muestra la flecha rosa. */
 .home-curio { cursor: pointer; }
 .home-curio:focus-visible { outline: 2px solid #E6007E; outline-offset: 3px; }
