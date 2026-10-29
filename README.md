@@ -1,18 +1,20 @@
-# VivoNet — versión 110
+# VivoNet — versión 111
 
-Proyecto web estático de VivoNet preparado para publicación en GitHub Pages y uso como aplicación web progresiva (PWA).
+Paquete completo de VivoNet basado en el HTML aprobado por separado.
 
 ## Archivos principales
-- `index.html`: pantalla principal de VivoNet con los ajustes de espaciado y la tarjeta de curiosidad interactiva.
-- `vigo.html`: página del asistente Vigo.
-- `manifest.webmanifest` y `service-worker.js`: instalación PWA y actualización de caché.
-- Iconos PNG y SVG usados por el navegador y el acceso directo.
+- `index.html`: entrada principal de la aplicación; coincide exactamente con `VivoNet_v44_original.html` y con el HTML aprobado.
+- `VivoNet_v44_original.html`: alias compatible con el nombre utilizado en paquetes anteriores; no contiene una versión antigua.
+- `vigo.html`: asistente Vigo.
+- `manifest.webmanifest`, `service-worker.js` e iconos: instalación PWA, caché y recursos visuales.
 
-## Cambios incluidos
-- Separación entre secciones: 12 px.
-- Separación antes de los botones inferiores: 26 px.
-- Eliminada la flecha rosa de «¿Sabías que…?». Al tocar la tarjeta se cambia la curiosidad y el consejo de venta; admite Enter y barra espaciadora.
-- Caché PWA versionada como `vivonet-v110` para evitar mantener la versión anterior almacenada.
+## Cambios que contiene el HTML
+- Separación solicitada de 12 px entre secciones.
+- Separación de 26 px antes de los botones inferiores.
+- La tarjeta «¿Sabías que…?» no muestra la flecha rosa y cambia curiosidad/consejo al tocarla; también acepta Enter y barra espaciadora.
 
-## Publicar
-Sube el contenido de esta carpeta a la raíz del repositorio y publica la rama principal en GitHub Pages. Después de actualizar una instalación existente, abre la página con conexión para permitir que el service worker descargue la nueva versión.
+## Actualización de caché
+El service worker usa la caché `vivonet-v111` para no reutilizar la caché de una versión anterior al actualizar la aplicación instalada.
+
+## Publicación
+Extrae todos los archivos y publica su contenido completo en la raíz de tu sitio. Después de actualizar una instalación existente, abre la página con conexión para que se active la nueva caché.
