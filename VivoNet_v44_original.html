@@ -177,7 +177,7 @@ html, body { border: 0 !important; outline: 0 !important; }
 main { padding-top: 12px !important; padding-bottom: 8px !important; }
 .promo-announcement { margin-top: 10px !important; }
 .curio-card.home-curio { margin-bottom: 8px !important; padding-top: 8px !important; padding-bottom: 7px !important; }
-.navgrid { gap: 7px !important; }
+.navgrid { gap: 9px !important; }
 .navcard { min-height: 112px !important; padding-top: 8px !important; padding-bottom: 8px !important; }
 .navicon { margin-bottom: 7px !important; }
 footer[aria-label="Accesos directos"] { margin-top: 10px !important; padding-top: 2px !important; padding-bottom: 2px !important; border: 0 !important; outline: 0 !important; }
@@ -298,8 +298,8 @@ footer[aria-label="Accesos directos"]{margin-top:18px !important;}
 
 <style id="vivonet-v64-header-inner-padding">
 /* V65: margen inferior de 12 px para mantener la misma separación que el resto de la interfaz. */
-header.topbar { padding-bottom: 12px !important; }
-@media (max-width: 559px) { header.topbar { padding-bottom: 12px !important; } }
+header.topbar { padding-bottom: 9px !important; }
+@media (max-width: 559px) { header.topbar { padding-bottom: 9px !important; } }
 /* v105: restaurar el contorno verde salvia de la tarjeta Calculadora, activa o inactiva. */
 #navCalc, #navCalc.navcard, #navCalc.navcard.active {
   border: 1.25px solid #7F9482 !important;
@@ -1006,15 +1006,21 @@ html body input, html body textarea, html body select, html body button { text-a
 
 
 <style id="vivonet-v107-spacing-curiosity-click">
-/* v114: espacios ajustados a 8px y separación inferior de accesos a 20px */
-:root { --section-gap: 8px !important; --layout-gap: 8px !important; }
-main, .main-content, .content, .sections, .section-grid, .cards-grid, .button-row, .bottom-buttons, .app-grid { gap: 8px !important; row-gap: 8px !important; column-gap: 8px !important; }
-header.topbar { padding-bottom: 12px !important; }
-.promo-announcement { margin-bottom: 8px !important; }
-.curio-card.home-curio { margin-bottom: 8px !important; }
-.navgrid { gap: 8px !important; }
-footer[aria-label="Accesos directos"] { margin-top: 20px !important; }
-@media (max-width: 559px) { header.topbar { padding-bottom: 12px !important; } }
+/* v118: todos los espacios son de 9px; solo el espacio entre secciones y accesos inferiores es de 14px. */
+:root { --section-gap: 9px !important; --layout-gap: 9px !important; }
+main, .main-content, .content, .sections, .section-grid, .cards-grid, .button-row, .bottom-buttons, .app-grid { gap: 9px !important; row-gap: 9px !important; column-gap: 9px !important; }
+header.topbar { padding-bottom: 9px !important; }
+.promo-announcement { margin-bottom: 9px !important; }
+.curio-card.home-curio { margin-bottom: 9px !important; }
+.navgrid { gap: 9px !important; }
+footer[aria-label="Accesos directos"] { margin-top: 14px !important; }
+/* Vigo conserva su color y contenido, con menos altura y relleno. */
+.vigo-feature-card { min-height: 62px !important; margin: 0 0 9px !important; padding: 8px 10px !important; }
+.vigo-feature-copy { gap: 2px !important; }
+.vigo-feature-copy strong { line-height: 1.15 !important; }
+.vigo-feature-copy small { line-height: 1.25 !important; }
+@media (max-width: 559px) { header.topbar { padding-bottom: 9px !important; } }
+@media (max-width: 420px) { .vigo-feature-card { min-height: 62px !important; margin-bottom: 9px !important; padding: 8px 10px !important; } }
 /* La tarjeta completa es el control; no se muestra la flecha rosa. */
 .home-curio { cursor: pointer; }
 .home-curio:focus-visible { outline: 2px solid #E6007E; outline-offset: 3px; }
