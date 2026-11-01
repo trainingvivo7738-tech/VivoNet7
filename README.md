@@ -1,12 +1,12 @@
-# VivoNet — paquete reconstruido v120
+# VivoNet — paquete reconstruido v123
 
-Este ZIP se reconstruyó usando como fuente única el HTML aprobado `VivoNet_v119_vigo_mas_compacto.html`.
+Este ZIP se reconstruyó usando como fuente única el HTML aprobado `VivoNet_VivoNet_v122_sin_incentivo_23_oct_8_nov.html`.
 
 ## Archivos principales
 - `index.html`: aplicación principal; coincide byte por byte con el HTML de referencia entregado.
 - `VivoNet_v44_original.html`: alias histórico; es idéntico a `index.html` y no es una versión antigua.
 - `vigo.html`: Vigo independiente; coincide exactamente con el payload de Vigo integrado dentro de `index.html`.
-- `service-worker.js`: caché `vivonet-v120` para forzar la renovación de recursos al publicar el paquete.
+- `service-worker.js`: caché `vivonet-v123` para forzar la renovación de recursos al publicar el paquete.
 - `manifest.webmanifest`, iconos y `.nojekyll`: recursos de publicación e instalación.
 
 ## Espaciado aprobado en el HTML

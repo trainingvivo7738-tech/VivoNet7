@@ -342,18 +342,39 @@ footer[aria-label="Accesos directos"] { margin-top: 28px !important; }
   box-shadow: none !important;
 }
 </style>
+
+<style id="vivonet-v121-calc-heading-centered">
+#calcPanel > .panelhead { justify-content:center !important; text-align:center !important; }
+#calcPanel > .panelhead > div { width:100% !important; min-width:0 !important; text-align:center !important; }
+#calcPanel > .panelhead h2, #calcPanel > .panelhead p { width:100% !important; text-align:center !important; margin-left:auto !important; margin-right:auto !important; }
+#calcPanel > .panelhead .pill { display:none !important; }
+/* Incentivos de noviembre: vigencia bajo cada monto y condiciones de pago al final. */
+.promo-announcement .incentive-item + .incentive-item { border-top:1px solid #E7D8C8; margin-top:9px; padding-top:8px; }
+.promo-announcement .promo-amount { margin-bottom:6px; }
+.promo-announcement .promo-amount strong { font-size:17px; }
+.promo-announcement .promo-amount span { display:block; margin-top:2px; }
+.promo-announcement .promo-sub { margin-bottom:5px; }
+.promo-announcement .promo-payment-notes { border-top:1px solid #E7D8C8; margin-top:9px; padding-top:8px; }
+.promo-announcement .promo-payment-notes .promo-detail + .promo-detail { margin-top:4px; }
+</style>
+
 </head>
 <body>
 <header class="topbar">
   <div class="welcome"><h1 id="welcomeTitle" role="button" tabindex="0" aria-label="Título de VivoNet">Bienvenidos a VivoNet</h1><p>Tus herramientas de venta, en un solo lugar.</p></div>
-  <section class="promo-announcement" aria-label="Anuncio de bono especial">
+  <section class="promo-announcement" aria-label="Incentivos especiales de noviembre">
     <div class="promo-head"><span class="promo-head-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10v4h4l9 4V6l-9 4H3Z"/><path d="M7 14l2.2 5.2a1.4 1.4 0 0 0 2.6-1l-1.1-2.8"/><path d="M19 9c1.5 1.5 1.5 4.5 0 6"/></svg></span></div>
-    <p class="promo-title">INCENTIVO ESPECIAL</p>
-    <p class="promo-sub">Si vendes V80 Lite 5G recibirás:</p>
-    <div class="promo-amount"><strong>$100 MXN extra</strong></div>
-    <div class="promo-details">
-      <div class="promo-detail"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg><span><b>Pago el mismo día</b> por transferencia.</span></div>
-      <div class="promo-detail"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-3"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m7 13 3 3 7-7"/></svg><span><b>Envía:</b> foto del ticket + captura de la venta en VChat.</span></div>
+    <p class="promo-title">INCENTIVOS ESPECIALES · NOVIEMBRE</p>
+    <div class="incentive-item">
+      <p class="promo-sub"><b>V80 Lite 5G</b></p>
+      <div class="promo-amount"><strong>$100 MXN extra por unidad</strong><span>Vigencia: del 9 al 30 de noviembre.</span></div>
+    </div>
+    <div class="incentive-item incentive-y31d">
+      <p class="promo-sub"><b>Y31D · Ambas versiones</b></p>
+      <div class="promo-amount"><strong>$140 MXN extra por unidad</strong><span>Vigencia: del 1 al 30 de noviembre.</span></div>
+    </div>
+    <div class="promo-details promo-payment-notes">
+      <div class="promo-detail"><span>Ambos incentivos se pagan junto con tus comisiones.</span></div>
     </div>
   </section>
 </header>
